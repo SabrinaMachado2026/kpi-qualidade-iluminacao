@@ -365,6 +365,7 @@ button{font-family:var(--font)}
   <div id="admin-painel" style="display:none">
     <div class="admin-tabs">
       <button class="atab active" onclick="showAdmTab('metas',this)">Metas</button>
+      <button class="atab" onclick="showAdmTab('mensal',this)">Mensal</button>
       <button class="atab" onclick="showAdmTab('params',this)">Parâmetros</button>
       <button class="atab" onclick="showAdmTab('motivos',this)">Motivos</button>
       <button class="atab" onclick="showAdmTab('colabs',this)">Colaboradores</button>
@@ -377,6 +378,11 @@ button{font-family:var(--font)}
       <div id="metas-list"></div>
       <button class="btn-green" style="width:100%;padding:9px;margin-top:6px" onclick="salvarMetas()">Salvar metas</button>
       <div id="metas-msg" style="margin-top:6px;font-size:11px;font-weight:600"></div>
+    </div>
+    <!-- MENSAL -->
+    <div id="at-mensal" style="display:none">
+      <p class="admin-desc">Resumo mensal por setor: quantidade realizada x meta, e % de qualidade (aprovação).</p>
+      <div id="mensal-resumo"></div>
     </div>
     <!-- PARAMS -->
     <div id="at-params" style="display:none">
@@ -1018,6 +1024,9 @@ function carregarPainelAdmin(){
     </div>`;
   }).join('');
 
+  // Mensal
+  renderMensalAdmin();
+
   // Parâmetros
   document.getElementById('p-atingiu').value=configGlobal.parametros?.threshold_atingiu||85;
   document.getElementById('p-superou').value=configGlobal.parametros?.threshold_superou||100;
@@ -1154,12 +1163,94 @@ async function alterarSenhaAdmin(){
   }catch(e){msg.textContent='❌ Erro';msg.style.color='var(--red)';}
 }
 
+const SETORES_MENSAL = [
+  {key:'montagem', label:'Ilumin. Potência e Tubular'},
+  {key:'apoio',    label:'Apoio 3 e Ferramentaria'},
+  {key:'almo',     label:'Almoxarifado'},
+  {key:'unidade1', label:'Unidade 1'},
+];
+
+function calcularResumoMensal(){
+  const dias = dadosGlobal.dias||{};
+  const setores = {};
+  SETORES_MENSAL.forEach(s => { setores[s.key] = {label:s.label, t:0, apr:0, rep:0, metaTotal:0, diasComDados:0}; });
+
+  Object.values(dias).forEach(inspetoresNoDia => {
+    Object.entries(inspetoresNoDia).forEach(([nome, d]) => {
+      const setor = getSetor(nome);
+      if(!setores[setor]) return; // ignora inspetores sem setor mapeado ("outros")
+      setores[setor].t += d.t||0;
+      setores[setor].apr += d.apr||0;
+      setores[setor].rep += d.rep||0;
+      setores[setor].metaTotal += getMeta(nome);
+      setores[setor].diasComDados += 1;
+    });
+  });
+
+  return setores;
+}
+
+function renderMensalAdmin(){
+  const el = document.getElementById('mensal-resumo');
+  if(!el) return;
+  const setores = calcularResumoMensal();
+
+  let totalT=0, totalApr=0, totalRep=0, totalMeta=0;
+  const rows = SETORES_MENSAL.map(s => {
+    const d = setores[s.key];
+    totalT += d.t; totalApr += d.apr; totalRep += d.rep; totalMeta += d.metaTotal;
+    const pctQtde = d.metaTotal ? Math.round(d.t/d.metaTotal*100) : 0;
+    const totalAvaliado = d.apr + d.rep;
+    const pctQual = totalAvaliado ? Math.round(d.apr/totalAvaliado*100) : 0;
+    const corQtde = pctQtde>=getTSup() ? 'var(--green)' : (pctQtde>=getTAt() ? '#c97a00' : 'var(--red)');
+    const corQual = pctQual>=getTAt() ? 'var(--green)' : 'var(--red)';
+    return `<tr>
+      <td style="text-align:left;font-weight:600">${d.label}</td>
+      <td>${d.t}</td>
+      <td>${d.metaTotal}</td>
+      <td style="color:${corQtde};font-weight:600">${pctQtde}%</td>
+      <td>${d.apr}</td>
+      <td>${d.rep}</td>
+      <td style="color:${corQual};font-weight:600">${pctQual}%</td>
+    </tr>`;
+  }).join('');
+
+  const pctQtdeTotal = totalMeta ? Math.round(totalT/totalMeta*100) : 0;
+  const totalAvaliadoGeral = totalApr+totalRep;
+  const pctQualTotal = totalAvaliadoGeral ? Math.round(totalApr/totalAvaliadoGeral*100) : 0;
+
+  el.innerHTML = `
+    <table class="rel-table">
+      <thead><tr>
+        <th>Setor</th><th>Realizado</th><th>Meta do período</th><th>% Qtde</th>
+        <th>Aprovadas</th><th>Reprovadas</th><th>% Qualidade</th>
+      </tr></thead>
+      <tbody>
+        ${rows}
+        <tr style="font-weight:700;background:var(--surface)">
+          <td style="text-align:left">Todos os setores</td>
+          <td>${totalT}</td>
+          <td>${totalMeta}</td>
+          <td>${pctQtdeTotal}%</td>
+          <td>${totalApr}</td>
+          <td>${totalRep}</td>
+          <td>${pctQualTotal}%</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="admin-desc" style="margin-top:8px">
+      Meta do período = soma da meta diária de cada inspetor (aba Metas) nos dias em que ele teve inspeções registradas.
+      % Qtde = Realizado ÷ Meta do período. % Qualidade = Aprovadas ÷ (Aprovadas + Reprovadas).
+    </p>`;
+}
+
 function showAdmTab(tab,btn){
-  ['metas','params','motivos','colabs','justifs','senha'].forEach(t=>{
+  ['metas','mensal','params','motivos','colabs','justifs','senha'].forEach(t=>{
     document.getElementById('at-'+t).style.display=t===tab?'block':'none';
   });
   document.querySelectorAll('.atab').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
+  if(tab==='mensal') renderMensalAdmin();
 }
 
 /* UPLOAD */
