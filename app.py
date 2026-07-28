@@ -381,6 +381,12 @@ def cf_evaluation_detail(evaluation_id):
         f'/v1/evaluations/{evaluation_id}/items',
         f'/v1/evaluations/{evaluation_id}/answers',
         f'/v1/evaluations/{evaluation_id}/details',
+        f'/v1/evaluation/{evaluation_id}',
+        f'/v1/answers?evaluationId={evaluation_id}',
+        f'/v1/evaluation-answers?evaluationId={evaluation_id}',
+        f'/v1/evaluationItems?evaluationId={evaluation_id}',
+        f'/v1/evaluations/{evaluation_id}/questions',
+        f'/v1/checklists/answers?evaluationId={evaluation_id}',
     ]
     resultados = {}
     for caminho in tentativas:
