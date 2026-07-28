@@ -367,6 +367,33 @@ def cf_headers():
     }
 
 
+@app.route('/api/cf/users', methods=['GET'])
+def cf_users():
+    """
+    Diagnóstico: tenta achar o endpoint que devolve nome dos usuários/inspetores
+    a partir do userId (a API de evaluations só devolve o ID numérico).
+    Tenta alguns caminhos prováveis e devolve o que der certo.
+    """
+    if not CHECKLISTFACIL_API_KEY:
+        return jsonify({'erro': 'CHECKLISTFACIL_API_KEY não configurada no Render'}), 500
+
+    tentativas = ['/v1/users', '/v1/collaborators', '/v1/employees', '/v1/members']
+    resultados = {}
+    for caminho in tentativas:
+        url = f'{CHECKLISTFACIL_BASE}{caminho}'
+        try:
+            r = requests.get(url, headers=cf_headers(), timeout=15)
+            try:
+                corpo = r.json()
+            except Exception:
+                corpo = r.text[:500]
+            resultados[caminho] = {'status_code': r.status_code, 'corpo': corpo}
+        except requests.exceptions.RequestException as e:
+            resultados[caminho] = {'erro': str(e)}
+
+    return jsonify(resultados), 200
+
+
 @app.route('/api/cf/status', methods=['GET'])
 def cf_status():
     """
