@@ -17,12 +17,14 @@ def after_request(response):
     response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
     return response
 
-DASHBOARD_URL = 'https://brunopedrolo.github.io/kpi-qualidade-iluminacao/'
+DASHBOARD_URL = 'https://sabrinamachado2026.github.io/kpi-qualidade-iluminacao/'
 GITHUB_TOKEN  = os.environ.get('GITHUB_TOKEN', '')
-GITHUB_USER   = 'BrunoPedrolo'
+GITHUB_USER   = 'SabrinaMachado2026'
 GITHUB_REPO   = 'kpi-qualidade-iluminacao'
 GITHUB_BRANCH = 'main'
 META_DEFAULT  = 21
+CHECKLISTFACIL_API_KEY = os.environ.get('CHECKLISTFACIL_API_KEY', '')
+CHECKLISTFACIL_BASE = 'https://api-analytics.checklistfacil.com.br'
 
 CONFIG_DEFAULT = {
     "metas": {},
@@ -92,9 +94,11 @@ def processar_xlsx(file):
     df = pd.read_excel(file)
     df.columns = df.columns.str.strip()
 
-    # Itens de aprovação aceitos (múltiplos formatos)
+    # Item padrão (modelo mais recente de checklist)
+    ITEM_PADRAO = 'Aprovação geral da etapa inspecionada.'
+    # Itens de aprovação aceitos (múltiplos formatos conhecidos, modelos mais antigos)
     ITENS_APROV = [
-        'Aprovação geral da etapa inspecionada.',
+        ITEM_PADRAO,
         'Aprovação da Inspeção',
         'A inspeção foi aprovada?',
         'Aprovação da Peça',
@@ -103,12 +107,66 @@ def processar_xlsx(file):
     RESPOSTAS_APROV = ['sim', 'atingiu', 'aprovado', 'aprovada', 'yes']
     # Respostas que indicam reprovação
     RESPOSTAS_REP   = ['não', 'nao', 'reprovado', 'reprovada', 'no', 'não atingiu']
+    # Itens de contexto/metadados que NUNCA devem contar como item pontuado no fallback
+    ITENS_METADADOS = [
+        'Executor', 'Executor da Inspeção', 'Inspetor Responsável',
+        'Turno de Produção (Linha)', 'Ordem de Produção', 'Etapa Auditada',
+        'Código do Colaborador',
+    ]
 
-    # Filtrar registros de aprovação (qualquer um dos itens aceitos)
-    mask = df['Item'].astype(str).str.strip().isin(ITENS_APROV)
-    aprovacao = df[mask].copy()
-    if len(aprovacao) == 0:
+    item_norm = df['Item'].astype(str).str.strip()
+    resp_norm = df['Resposta'].astype(str).str.strip().str.lower()
+
+    # Máscara ampla: cobre a lista conhecida ACIMA + qualquer item que contenha "aprov"
+    # (checklists antigos usam perguntas por etapa como "o corte está aprovado?",
+    # "o estampo está aprovado?", "a peça está aprovada?" etc., em vez do item padrão)
+    mask = item_norm.isin(ITENS_APROV) | item_norm.str.contains('aprov', case=False, na=False)
+    candidatos = df[mask].copy()
+
+    codigos_com_verdict = set(candidatos['Código da avaliação']) if len(candidatos) else set()
+
+    # ── Fallback (modelos de checklist muito antigos, sem nenhum item de aprovação) ──
+    # Avaliações de auditoria de processo (ex: Tamponagem, Pintura, Embalagem) não têm
+    # uma pergunta final de aprovação — têm vários itens pontuados como
+    # "Atingiu" / "Não atingiu". Nesses casos: reprova se QUALQUER item pontuado for
+    # "Não atingiu"; senão aprova. Itens de metadados/texto livre são ignorados.
+    SCORED = {'atingiu', 'não atingiu', 'nao atingiu'}
+    todos_codigos = set(df['Código da avaliação'])
+    codigos_sem_verdict = todos_codigos - codigos_com_verdict
+
+    fallback_rows = []
+    if codigos_sem_verdict:
+        df_restante = df[df['Código da avaliação'].isin(codigos_sem_verdict)].copy()
+        df_restante['_item_norm'] = item_norm.loc[df_restante.index]
+        df_restante['_resp_norm'] = resp_norm.loc[df_restante.index]
+        df_scored = df_restante[
+            df_restante['_resp_norm'].isin(SCORED) & ~df_restante['_item_norm'].isin(ITENS_METADADOS)
+        ]
+        for codigo, grupo in df_scored.groupby('Código da avaliação'):
+            tem_reprovado = grupo['_resp_norm'].isin(['não atingiu', 'nao atingiu']).any()
+            linha = grupo.iloc[0].copy()
+            linha['Item'] = '__verdict_fallback__'
+            linha['Resposta'] = 'Não atingiu' if tem_reprovado else 'Atingiu'
+            fallback_rows.append(linha.drop(labels=['_item_norm', '_resp_norm']))
+
+    if len(candidatos) == 0 and not fallback_rows:
         return {}
+
+    # Uma avaliação pode ter mais de um item de aprovação (ex: aprovação por etapa
+    # + a aprovação geral padrão). Para não contar a mesma inspeção duas vezes,
+    # priorizamos sempre o item padrão quando ele existir; senão usamos o primeiro
+    # item de aprovação alternativo encontrado.
+    if len(candidatos):
+        candidatos['_prioridade'] = (item_norm.loc[candidatos.index] == ITEM_PADRAO).astype(int)
+        candidatos = candidatos.sort_values('_prioridade', ascending=False)
+        aprovacao = candidatos.drop_duplicates(subset=['Código da avaliação'], keep='first').copy()
+        aprovacao.drop(columns=['_prioridade'], inplace=True)
+    else:
+        aprovacao = df.iloc[0:0].copy()
+
+    if fallback_rows:
+        df_fallback = pd.DataFrame(fallback_rows)
+        aprovacao = pd.concat([aprovacao, df_fallback], ignore_index=True)
 
     aprovacao['Data inicial'] = pd.to_datetime(aprovacao['Data inicial'], dayfirst=True, errors='coerce')
     aprovacao['Data'] = aprovacao['Data inicial'].dt.strftime('%d/%m')
@@ -296,6 +354,48 @@ def verificar_admin():
     if senha == config.get('senha_admin', 'Zagonel@2026'):
         return jsonify({'sucesso': True})
     return jsonify({'erro': 'Senha incorreta'}), 401
+
+
+# ────────────────────────────────────────────────────────────────
+# INTEGRAÇÃO CHECKLIST FÁCIL — API Analytics
+# ────────────────────────────────────────────────────────────────
+
+def cf_headers():
+    return {
+        'Authorization': f'Bearer {CHECKLISTFACIL_API_KEY}',
+        'Accept': 'application/json',
+    }
+
+
+@app.route('/api/cf/status', methods=['GET'])
+def cf_status():
+    """
+    Diagnóstico: faz UMA chamada simples pra API do Checklist Fácil e
+    devolve a resposta crua (ou o erro), pra calibrarmos o parsing real
+    sem precisar adivinhar o formato.
+    """
+    if not CHECKLISTFACIL_API_KEY:
+        return jsonify({'erro': 'CHECKLISTFACIL_API_KEY não configurada no Render'}), 500
+
+    # janela pequena: só hoje, pra não estourar rate limit / payload grande
+    hoje = datetime.now().strftime('%Y-%m-%dT00:00:00Z')
+    url = f'{CHECKLISTFACIL_BASE}/v1/evaluations'
+    params = {'startedAt[gte]': hoje}
+
+    try:
+        r = requests.get(url, headers=cf_headers(), params=params, timeout=20)
+        try:
+            corpo = r.json()
+        except Exception:
+            corpo = r.text[:2000]
+        return jsonify({
+            'status_code': r.status_code,
+            'url_chamada': r.url,
+            'corpo': corpo,
+        }), 200
+    except requests.exceptions.RequestException as e:
+        return jsonify({'erro': f'Falha na requisição: {str(e)}'}), 500
+
 
 if __name__ == '__main__':
     app.run(debug=False, host='0.0.0.0', port=5000)
