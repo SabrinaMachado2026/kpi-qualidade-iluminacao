@@ -367,6 +367,64 @@ def cf_headers():
     }
 
 
+@app.route('/api/cf/units', methods=['GET'])
+def cf_units():
+    """
+    Diagnóstico: tenta achar o endpoint que devolve a descrição de cada
+    unidade/linha (ex: 'Metálicos 2004 - Apoio 3 Iluminação') a partir do unitId.
+    """
+    if not CHECKLISTFACIL_API_KEY:
+        return jsonify({'erro': 'CHECKLISTFACIL_API_KEY não configurada no Render'}), 500
+
+    tentativas = ['/v1/units', '/v1/branches', '/v1/locations']
+    resultados = {}
+    for caminho in tentativas:
+        url = f'{CHECKLISTFACIL_BASE}{caminho}'
+        try:
+            r = requests.get(url, headers=cf_headers(), timeout=15)
+            try:
+                corpo = r.json()
+            except Exception:
+                corpo = r.text[:800]
+            resultados[caminho] = {'status_code': r.status_code, 'corpo': corpo}
+        except requests.exceptions.RequestException as e:
+            resultados[caminho] = {'erro': str(e)}
+
+    return jsonify(resultados), 200
+
+
+@app.route('/api/cf/evaluation-v2/<int:evaluation_id>', methods=['GET'])
+def cf_evaluation_v2(evaluation_id):
+    """
+    Diagnóstico: tenta o domínio alternativo (api.checklistfacil.com.br, v2)
+    pra ver se ele expõe os itens/respostas de uma avaliação (com o nome do
+    inspetor no item 'Executor'), já que o domínio api-analytics não tem isso.
+    """
+    if not CHECKLISTFACIL_API_KEY:
+        return jsonify({'erro': 'CHECKLISTFACIL_API_KEY não configurada no Render'}), 500
+
+    base_v2 = 'https://api.checklistfacil.com.br'
+    tentativas = [
+        f'/v2/evaluations/{evaluation_id}',
+        f'/v2/evaluations/{evaluation_id}/items',
+        f'/v2/evaluations/{evaluation_id}/answers',
+    ]
+    resultados = {}
+    for caminho in tentativas:
+        url = f'{base_v2}{caminho}'
+        try:
+            r = requests.get(url, headers=cf_headers(), timeout=15)
+            try:
+                corpo = r.json()
+            except Exception:
+                corpo = r.text[:1500]
+            resultados[caminho] = {'status_code': r.status_code, 'corpo': corpo}
+        except requests.exceptions.RequestException as e:
+            resultados[caminho] = {'erro': str(e)}
+
+    return jsonify(resultados), 200
+
+
 @app.route('/api/cf/evaluation/<int:evaluation_id>', methods=['GET'])
 def cf_evaluation_detail(evaluation_id):
     """
