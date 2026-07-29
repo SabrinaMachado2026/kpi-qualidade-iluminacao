@@ -864,6 +864,22 @@
         "pot": 27,
         "tub": 10,
         "pct": 176.2
+      },
+      "Bruna Muller Travessini": {
+        "t": 1,
+        "apr": 1,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 4.8
+      },
+      "Natan Soares": {
+        "t": 9,
+        "apr": 9,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 42.9
       }
     },
     "01/06": {
@@ -892,12 +908,20 @@
         "pct": 42.9
       },
       "Natan Soares": {
-        "t": 2,
-        "apr": 2,
+        "t": 12,
+        "apr": 12,
         "rep": 0,
         "pot": 0,
         "tub": 0,
-        "pct": 9.5
+        "pct": 57.1
+      },
+      "Bruna Muller Travessini": {
+        "t": 4,
+        "apr": 4,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 19.0
       }
     },
     "02/06": {
@@ -924,6 +948,22 @@
         "pot": 0,
         "tub": 0,
         "pct": 42.9
+      },
+      "Bruna Muller Travessini": {
+        "t": 2,
+        "apr": 2,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 9.5
+      },
+      "Natan Soares": {
+        "t": 10,
+        "apr": 10,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 47.6
       }
     },
     "04/06": {
@@ -952,12 +992,20 @@
         "pct": 42.9
       },
       "Natan Soares": {
-        "t": 1,
-        "apr": 1,
+        "t": 8,
+        "apr": 8,
         "rep": 0,
         "pot": 0,
         "tub": 0,
-        "pct": 4.8
+        "pct": 38.1
+      },
+      "Bruna Muller Travessini": {
+        "t": 3,
+        "apr": 3,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 14.3
       }
     },
     "08/06": {
@@ -984,6 +1032,22 @@
         "pot": 0,
         "tub": 0,
         "pct": 42.9
+      },
+      "Bruna Muller Travessini": {
+        "t": 1,
+        "apr": 1,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 4.8
+      },
+      "Natan Soares": {
+        "t": 10,
+        "apr": 10,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 47.6
       }
     },
     "09/06": {
@@ -1012,12 +1076,20 @@
         "pct": 42.9
       },
       "Natan Soares": {
-        "t": 1,
-        "apr": 1,
+        "t": 9,
+        "apr": 9,
         "rep": 0,
         "pot": 0,
         "tub": 0,
-        "pct": 4.8
+        "pct": 42.9
+      },
+      "Bruna Muller Travessini": {
+        "t": 2,
+        "apr": 2,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 9.5
       }
     },
     "10/06": {
@@ -1038,6 +1110,14 @@
         "pct": 204.8
       },
       "Natan Soares": {
+        "t": 8,
+        "apr": 8,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 38.1
+      },
+      "Bruna Muller Travessini": {
         "t": 1,
         "apr": 1,
         "rep": 0,
@@ -1070,6 +1150,22 @@
         "pot": 0,
         "tub": 0,
         "pct": 42.9
+      },
+      "Bruna Muller Travessini": {
+        "t": 1,
+        "apr": 1,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 4.8
+      },
+      "Natan Soares": {
+        "t": 11,
+        "apr": 11,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 52.4
       }
     },
     "12/06": {
@@ -1088,6 +1184,22 @@
         "pot": 32,
         "tub": 13,
         "pct": 214.3
+      },
+      "Bruna Muller Travessini": {
+        "t": 2,
+        "apr": 2,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 9.5
+      },
+      "Natan Soares": {
+        "t": 11,
+        "apr": 11,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 52.4
       }
     },
     "15/06": {
@@ -1114,6 +1226,22 @@
         "pot": 0,
         "tub": 0,
         "pct": 42.9
+      },
+      "Bruna Muller Travessini": {
+        "t": 1,
+        "apr": 1,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 4.8
+      },
+      "Natan Soares": {
+        "t": 15,
+        "apr": 15,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 71.4
       }
     },
     "16/06": {
@@ -1132,6 +1260,22 @@
         "pot": 29,
         "tub": 11,
         "pct": 190.5
+      },
+      "Bruna Muller Travessini": {
+        "t": 1,
+        "apr": 1,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 4.8
+      },
+      "Natan Soares": {
+        "t": 14,
+        "apr": 14,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 66.7
       }
     },
     "17/06": {
@@ -1160,6 +1304,14 @@
         "pct": 42.9
       },
       "Natan Soares": {
+        "t": 10,
+        "apr": 10,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 47.6
+      },
+      "Bruna Muller Travessini": {
         "t": 1,
         "apr": 1,
         "rep": 0,
@@ -1194,12 +1346,20 @@
         "pct": 38.1
       },
       "Natan Soares": {
-        "t": 2,
-        "apr": 2,
+        "t": 8,
+        "apr": 8,
         "rep": 0,
         "pot": 0,
         "tub": 0,
-        "pct": 9.5
+        "pct": 38.1
+      },
+      "Bruna Muller Travessini": {
+        "t": 1,
+        "apr": 1,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 4.8
       }
     },
     "19/06": {
@@ -1226,6 +1386,22 @@
         "pot": 0,
         "tub": 0,
         "pct": 42.9
+      },
+      "Bruna Muller Travessini": {
+        "t": 2,
+        "apr": 2,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 9.5
+      },
+      "Natan Soares": {
+        "t": 12,
+        "apr": 12,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 57.1
       }
     },
     "22/06": {
@@ -1236,6 +1412,22 @@
         "pot": 31,
         "tub": 13,
         "pct": 209.5
+      },
+      "Bruna Muller Travessini": {
+        "t": 1,
+        "apr": 1,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 4.8
+      },
+      "Natan Soares": {
+        "t": 9,
+        "apr": 9,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 42.9
       }
     },
     "23/06": {
@@ -1248,6 +1440,22 @@
         "pct": 142.9
       },
       "Maristela Poter": {
+        "t": 9,
+        "apr": 9,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 42.9
+      },
+      "Bruna Muller Travessini": {
+        "t": 1,
+        "apr": 1,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 4.8
+      },
+      "Natan Soares": {
         "t": 9,
         "apr": 9,
         "rep": 0,
@@ -1274,6 +1482,14 @@
         "pct": 42.9
       },
       "Natan Soares": {
+        "t": 13,
+        "apr": 13,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 61.9
+      },
+      "Bruna Muller Travessini": {
         "t": 1,
         "apr": 1,
         "rep": 0,
@@ -1298,6 +1514,22 @@
         "pot": 0,
         "tub": 0,
         "pct": 42.9
+      },
+      "Bruna Muller Travessini": {
+        "t": 1,
+        "apr": 1,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 4.8
+      },
+      "Natan Soares": {
+        "t": 10,
+        "apr": 10,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 47.6
       }
     },
     "26/06": {
@@ -1318,12 +1550,20 @@
         "pct": 42.9
       },
       "Natan Soares": {
-        "t": 2,
-        "apr": 2,
+        "t": 9,
+        "apr": 9,
         "rep": 0,
         "pot": 0,
         "tub": 0,
-        "pct": 9.5
+        "pct": 42.9
+      },
+      "Bruna Muller Travessini": {
+        "t": 1,
+        "apr": 1,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 4.8
       }
     },
     "29/06": {
@@ -1344,12 +1584,20 @@
         "pct": 42.9
       },
       "Natan Soares": {
-        "t": 2,
-        "apr": 2,
+        "t": 11,
+        "apr": 11,
         "rep": 0,
         "pot": 0,
         "tub": 0,
-        "pct": 9.5
+        "pct": 52.4
+      },
+      "Bruna Muller Travessini": {
+        "t": 1,
+        "apr": 1,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 4.8
       }
     },
     "30/06": {
@@ -1368,8 +1616,16 @@
         "pot": 0,
         "tub": 0,
         "pct": 42.9
+      },
+      "Natan Soares": {
+        "t": 15,
+        "apr": 15,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 71.4
       }
     }
   },
-  "ultima_atualizacao": "29/07/2026 12:20"
+  "ultima_atualizacao": "29/07/2026 12:21"
 }
