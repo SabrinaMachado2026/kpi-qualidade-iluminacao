@@ -1370,6 +1370,8 @@ function calcularResumoMensal(){
   return porMes;
 }
 
+let mensalMesAberto;
+
 function renderMensalAdmin(){
   const el = document.getElementById('mensal-resumo');
   if(!el) return;
@@ -1384,70 +1386,84 @@ function renderMensalAdmin(){
     return;
   }
 
-  const blocos = mesesOrdenados.map(mes => {
-    const setores = porMes[mes];
-    let totalT=0, totalApr=0, totalRep=0, totalMeta=0;
+  if(mensalMesAberto === undefined || (mensalMesAberto !== null && !mesesOrdenados.includes(mensalMesAberto))){
+    mensalMesAberto = mesesOrdenados[mesesOrdenados.length-1];
+  }
 
-    const cards = SETORES_MENSAL.map(s => {
-      const d = setores[s.key];
-      totalT += d.t; totalApr += d.apr; totalRep += d.rep; totalMeta += d.metaTotal;
-      const pctQtde = d.metaTotal ? Math.round(d.t/d.metaTotal*100) : 0;
-      const totalAvaliado = d.apr + d.rep;
-      const pctQual = totalAvaliado ? Math.round(d.apr/totalAvaliado*100) : 0;
-      const atingiuQtde = pctQtde >= tAt;
-      const corQtde = pctQtde>=tSup ? 'var(--green)' : (pctQtde>=tAt ? 'var(--amber)' : 'var(--red)');
-      const bgQtde = pctQtde>=tSup ? 'var(--green-light)' : (pctQtde>=tAt ? '#fdf3e2' : '#fdeceb');
-      const corQual = pctQual>=tAt ? 'var(--green)' : 'var(--red)';
-      const badgeTexto = atingiuQtde ? `Atingiu · ${pctQtde}%` : `Não atingiu · ${pctQtde}%`;
-      return `
-        <div style="background:var(--white);border:1px solid var(--border);border-radius:10px;padding:12px 14px">
-          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:6px">
-            <div>
-              <p style="font-weight:600;font-size:13px;margin:0;color:var(--text)">${d.label}</p>
-              <p style="font-size:10px;color:var(--muted);margin:2px 0 0">${d.pessoas.size} pessoa(s) com dados</p>
-            </div>
-            <span style="background:${bgQtde};color:${corQtde};font-size:10px;font-weight:600;padding:3px 8px;border-radius:999px;white-space:nowrap">${badgeTexto}</span>
-          </div>
-          <p style="font-size:24px;font-weight:700;color:${corQtde};margin:10px 0 4px;font-family:'IBM Plex Mono',monospace">${pctQtde}%</p>
-          <div style="background:var(--surface);border-radius:999px;height:5px;overflow:hidden;margin-bottom:8px">
-            <div style="background:${corQtde};height:100%;width:${Math.min(100,pctQtde)}%"></div>
-          </div>
-          <p style="font-size:11px;color:var(--muted);margin:0;display:flex;justify-content:space-between">
-            <span>${d.t} realizadas</span><span>meta ${d.metaTotal}</span>
-          </p>
-          <p style="font-size:11px;color:var(--muted);margin:6px 0 0;display:flex;justify-content:space-between">
-            <span>${d.apr} aprovadas · ${d.rep} reprovadas</span>
-            <span style="color:${corQual};font-weight:600">${pctQual}%</span>
-          </p>
-        </div>`;
-    }).join('');
-
-    const pctQtdeTotal = totalMeta ? Math.round(totalT/totalMeta*100) : 0;
-    const totalAvaliadoGeral = totalApr+totalRep;
-    const pctQualTotal = totalAvaliadoGeral ? Math.round(totalApr/totalAvaliadoGeral*100) : 0;
-    const corTotal = pctQtdeTotal>=tSup ? 'var(--green)' : (pctQtdeTotal>=tAt ? 'var(--amber)' : 'var(--red)');
-
-    return `
-      <div style="margin-bottom:24px">
-        <h3 style="font-size:14px;margin:0 0 10px;color:var(--text)">${mesLabel(mes)}</h3>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px">
-          ${cards}
-        </div>
-        <div style="margin-top:10px;padding:8px 14px;background:var(--surface);border-radius:8px;display:flex;justify-content:space-between;align-items:center;font-size:12px">
-          <span style="font-weight:600">Todos os setores</span>
-          <span>${totalT} de ${totalMeta} realizadas</span>
-          <span style="color:${corTotal};font-weight:700">${pctQtdeTotal}%</span>
-          <span>${totalApr} aprov. / ${totalRep} reprov.</span>
-          <span style="font-weight:600">${pctQualTotal}% qualidade</span>
-        </div>
-      </div>`;
+  const abas = mesesOrdenados.map(mes => {
+    const ativo = mes === mensalMesAberto;
+    return `<button class="monthtab${ativo?' active':''}" onclick="toggleMensalMes('${mes}')">${mesLabel(mes)}</button>`;
   }).join('');
 
-  el.innerHTML = blocos + `
+  const conteudo = mensalMesAberto ? renderMensalMesBloco(porMes[mensalMesAberto], tAt, tSup) : '';
+
+  el.innerHTML = `
+    <div class="month-scroll" style="margin-bottom:14px">${abas}</div>
+    <div id="mensal-conteudo">${conteudo}</div>
     <p class="admin-desc" style="margin-top:8px">
       Meta do mês = soma da meta diária de cada inspetor (definida na aba Inspetores) nos dias em que ele teve inspeções registradas naquele mês.
       % Qtde = Realizado ÷ Meta do mês. % Qualidade = Aprovadas ÷ (Aprovadas + Reprovadas), usando o threshold "Atingiu" (${tAt}%) configurado em Parâmetros.
     </p>`;
+}
+
+function toggleMensalMes(mes){
+  mensalMesAberto = (mensalMesAberto === mes) ? null : mes;
+  renderMensalAdmin();
+}
+
+function renderMensalMesBloco(setores, tAt, tSup){
+  let totalT=0, totalApr=0, totalRep=0, totalMeta=0;
+
+  const cards = SETORES_MENSAL.map(s => {
+    const d = setores[s.key];
+    totalT += d.t; totalApr += d.apr; totalRep += d.rep; totalMeta += d.metaTotal;
+    const pctQtde = d.metaTotal ? Math.round(d.t/d.metaTotal*100) : 0;
+    const totalAvaliado = d.apr + d.rep;
+    const pctQual = totalAvaliado ? Math.round(d.apr/totalAvaliado*100) : 0;
+    const atingiuQtde = pctQtde >= tAt;
+    const corQtde = pctQtde>=tSup ? 'var(--green)' : (pctQtde>=tAt ? 'var(--amber)' : 'var(--red)');
+    const bgQtde = pctQtde>=tSup ? 'var(--green-light)' : (pctQtde>=tAt ? '#fdf3e2' : '#fdeceb');
+    const corQual = pctQual>=tAt ? 'var(--green)' : 'var(--red)';
+    const badgeTexto = atingiuQtde ? `Atingiu · ${pctQtde}%` : `Não atingiu · ${pctQtde}%`;
+    return `
+      <div style="background:var(--white);border:1px solid var(--border);border-radius:10px;padding:12px 14px">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:6px">
+          <div>
+            <p style="font-weight:600;font-size:13px;margin:0;color:var(--text)">${d.label}</p>
+            <p style="font-size:10px;color:var(--muted);margin:2px 0 0">${d.pessoas.size} pessoa(s) com dados</p>
+          </div>
+          <span style="background:${bgQtde};color:${corQtde};font-size:10px;font-weight:600;padding:3px 8px;border-radius:999px;white-space:nowrap">${badgeTexto}</span>
+        </div>
+        <p style="font-size:24px;font-weight:700;color:${corQtde};margin:10px 0 4px;font-family:'IBM Plex Mono',monospace">${pctQtde}%</p>
+        <div style="background:var(--surface);border-radius:999px;height:5px;overflow:hidden;margin-bottom:8px">
+          <div style="background:${corQtde};height:100%;width:${Math.min(100,pctQtde)}%"></div>
+        </div>
+        <p style="font-size:11px;color:var(--muted);margin:0;display:flex;justify-content:space-between">
+          <span>${d.t} realizadas</span><span>meta ${d.metaTotal}</span>
+        </p>
+        <p style="font-size:11px;color:var(--muted);margin:6px 0 0;display:flex;justify-content:space-between">
+          <span>${d.apr} aprovadas · ${d.rep} reprovadas</span>
+          <span style="color:${corQual};font-weight:600">${pctQual}%</span>
+        </p>
+      </div>`;
+  }).join('');
+
+  const pctQtdeTotal = totalMeta ? Math.round(totalT/totalMeta*100) : 0;
+  const totalAvaliadoGeral = totalApr+totalRep;
+  const pctQualTotal = totalAvaliadoGeral ? Math.round(totalApr/totalAvaliadoGeral*100) : 0;
+  const corTotal = pctQtdeTotal>=tSup ? 'var(--green)' : (pctQtdeTotal>=tAt ? 'var(--amber)' : 'var(--red)');
+
+  return `
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px">
+      ${cards}
+    </div>
+    <div style="margin-top:10px;padding:8px 14px;background:var(--surface);border-radius:8px;display:flex;justify-content:space-between;align-items:center;font-size:12px">
+      <span style="font-weight:600">Todos os setores</span>
+      <span>${totalT} de ${totalMeta} realizadas</span>
+      <span style="color:${corTotal};font-weight:700">${pctQtdeTotal}%</span>
+      <span>${totalApr} aprov. / ${totalRep} reprov.</span>
+      <span style="font-weight:600">${pctQualTotal}% qualidade</span>
+    </div>`;
 }
 
 function showAdmTab(tab,btn){
