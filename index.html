@@ -521,24 +521,32 @@ let chartEvolucao = null, chartDonut = null;
 
 const inspDef = {
   'Marileia Goettems':       {setor:'montagem',setorLabel:'Ilumin. Potência e Tubular',init:'MG'},
-  'Jaqueline Tais Reimundo': {setor:'montagem',setorLabel:'Ilumin. Potência e Tubular',init:'JR'},
   'Jaqueline Reimundo':      {setor:'montagem',setorLabel:'Ilumin. Potência e Tubular',init:'JR'},
   'Natan Soares':            {setor:'apoio',   setorLabel:'Apoio 3 e Ferramentaria',   init:'NS'},
   'Maristela Poter':         {setor:'almo',    setorLabel:'Almoxarifado',              init:'MP'},
-  'Maristela Potter':        {setor:'almo',    setorLabel:'Almoxarifado',              init:'MP'},
   'Naiara Rossa':            {setor:'almo',    setorLabel:'Almoxarifado',              init:'NR'},
   'Eliane Nalin':            {setor:'unidade1',setorLabel:'Unidade 1',                 init:'EN'},
   'Junior Schwerz':          {setor:'unidade1',setorLabel:'Unidade 1',                 init:'JS'},
   'Reinaldis Farinas':       {setor:'unidade1',setorLabel:'Unidade 1',                 init:'RF'},
-  'Hanikeli':                {setor:'unidade1',setorLabel:'Unidade 1',                 init:'HK'},
+  'Hanikeli Teodoro':        {setor:'unidade1',setorLabel:'Unidade 1',                 init:'HK'},
   'Bruna Muller Travessini': {setor:'unidade1',setorLabel:'Unidade 1',                 init:'BM'},
   'Elen Sandi Grando':       {setor:'unidade1',setorLabel:'Unidade 1',                 init:'ES'},
 };
 
-const getInit = n => (inspDef[n]||{}).init||(n.split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase());
-const getSetor = n => (inspDef[n]||{}).setor||'outros';
-const getSetorLabel = n => (inspDef[n]||{}).setorLabel||'Outros';
-const getMeta = n => configGlobal.metas[n]?.meta || 21;
+// Nomes que aparecem grafados de forma diferente entre exportações,
+// mas são a mesma pessoa — tudo é reduzido ao nome canônico (chave do inspDef).
+const ALIAS_NOMES = {
+  'Jaqueline Tais Reimundo': 'Jaqueline Reimundo',
+  'Junior Cezar Schwerz':    'Junior Schwerz',
+  'Maristela Potter':        'Maristela Poter',
+  'Hanikeli':                'Hanikeli Teodoro',
+};
+const nomeCanonico = n => ALIAS_NOMES[n] || n;
+
+const getInit = n => (inspDef[nomeCanonico(n)]||{}).init||(n.split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase());
+const getSetor = n => (inspDef[nomeCanonico(n)]||{}).setor||'outros';
+const getSetorLabel = n => (inspDef[nomeCanonico(n)]||{}).setorLabel||'Outros';
+const getMeta = n => configGlobal.metas[nomeCanonico(n)]?.meta || 21;
 const getTAt = () => configGlobal.parametros?.threshold_atingiu || 85;
 const getTSup = () => configGlobal.parametros?.threshold_superou || 100;
 
@@ -612,7 +620,14 @@ function inicializar() {
 function getDia(name, dates) {
   const dias = dadosGlobal.dias||{};
   const useDates = dates.includes('geral') ? Object.keys(dias) : dates;
-  const entries = useDates.map(d=>(dias[d]||{})[name]).filter(Boolean);
+  const alvo = nomeCanonico(name);
+  const entries = [];
+  useDates.forEach(d => {
+    const diaObj = dias[d]||{};
+    Object.keys(diaObj).forEach(chave => {
+      if(nomeCanonico(chave) === alvo) entries.push(diaObj[chave]);
+    });
+  });
   if(!entries.length) return {t:0,apr:0,rep:0,pot:0,tub:0,noData:true};
   return {
     t:   entries.reduce((a,b)=>a+b.t,0),
@@ -626,7 +641,7 @@ function getDia(name, dates) {
 
 function getInspetores() {
   const dias = dadosGlobal.dias||{};
-  const fromData = [...new Set(Object.values(dias).flatMap(d=>Object.keys(d)))];
+  const fromData = [...new Set(Object.values(dias).flatMap(d=>Object.keys(d)).map(nomeCanonico))];
   Object.keys(inspDef).forEach(n=>{ if(!fromData.includes(n)) fromData.push(n); });
   return fromData;
 }
@@ -1363,7 +1378,7 @@ function calcularResumoMensal(){
       porMes[mes][setor].apr += d.apr||0;
       porMes[mes][setor].rep += d.rep||0;
       porMes[mes][setor].metaTotal += getMeta(nome);
-      porMes[mes][setor].pessoas.add(nome);
+      porMes[mes][setor].pessoas.add(nomeCanonico(nome));
     });
   });
 
