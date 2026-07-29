@@ -880,6 +880,22 @@
         "pot": 0,
         "tub": 0,
         "pct": 42.9
+      },
+      "Eliane Nalin": {
+        "t": 5,
+        "apr": 3,
+        "rep": 2,
+        "pot": 0,
+        "tub": 0,
+        "pct": 23.8
+      },
+      "Reinaldis Farinas": {
+        "t": 7,
+        "apr": 7,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 33.3
       }
     },
     "01/06": {
@@ -922,6 +938,22 @@
         "pot": 0,
         "tub": 0,
         "pct": 19.0
+      },
+      "Eliane Nalin": {
+        "t": 11,
+        "apr": 11,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 52.4
+      },
+      "Reinaldis Farinas": {
+        "t": 11,
+        "apr": 11,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 52.4
       }
     },
     "02/06": {
@@ -964,6 +996,30 @@
         "pot": 0,
         "tub": 0,
         "pct": 47.6
+      },
+      "Eliane Nalin": {
+        "t": 3,
+        "apr": 3,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 14.3
+      },
+      "Junior Schwerz": {
+        "t": 4,
+        "apr": 4,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 19.0
+      },
+      "Reinaldis Farinas": {
+        "t": 7,
+        "apr": 6,
+        "rep": 1,
+        "pot": 0,
+        "tub": 0,
+        "pct": 33.3
       }
     },
     "04/06": {
@@ -1006,6 +1062,22 @@
         "pot": 0,
         "tub": 0,
         "pct": 14.3
+      },
+      "Eliane Nalin": {
+        "t": 19,
+        "apr": 18,
+        "rep": 1,
+        "pot": 0,
+        "tub": 0,
+        "pct": 90.5
+      },
+      "Reinaldis Farinas": {
+        "t": 9,
+        "apr": 9,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 42.9
       }
     },
     "08/06": {
@@ -1048,6 +1120,22 @@
         "pot": 0,
         "tub": 0,
         "pct": 47.6
+      },
+      "Eliane Nalin": {
+        "t": 17,
+        "apr": 17,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 81.0
+      },
+      "Reinaldis Farinas": {
+        "t": 16,
+        "apr": 16,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 76.2
       }
     },
     "09/06": {
@@ -1090,6 +1178,22 @@
         "pot": 0,
         "tub": 0,
         "pct": 9.5
+      },
+      "Eliane Nalin": {
+        "t": 19,
+        "apr": 19,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 90.5
+      },
+      "Reinaldis Farinas": {
+        "t": 12,
+        "apr": 12,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 57.1
       }
     },
     "10/06": {
@@ -1124,6 +1228,22 @@
         "pot": 0,
         "tub": 0,
         "pct": 4.8
+      },
+      "Eliane Nalin": {
+        "t": 15,
+        "apr": 14,
+        "rep": 1,
+        "pot": 0,
+        "tub": 0,
+        "pct": 71.4
+      },
+      "Reinaldis Farinas": {
+        "t": 21,
+        "apr": 21,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 100.0
       }
     },
     "11/06": {
@@ -1166,6 +1286,22 @@
         "pot": 0,
         "tub": 0,
         "pct": 52.4
+      },
+      "Eliane Nalin": {
+        "t": 15,
+        "apr": 15,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 71.4
+      },
+      "Reinaldis Farinas": {
+        "t": 11,
+        "apr": 11,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 52.4
       }
     },
     "12/06": {
@@ -1200,6 +1336,22 @@
         "pot": 0,
         "tub": 0,
         "pct": 52.4
+      },
+      "Eliane Nalin": {
+        "t": 17,
+        "apr": 17,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 81.0
+      },
+      "Reinaldis Farinas": {
+        "t": 14,
+        "apr": 13,
+        "rep": 1,
+        "pot": 0,
+        "tub": 0,
+        "pct": 66.7
       }
     },
     "15/06": {
@@ -1242,6 +1394,22 @@
         "pot": 0,
         "tub": 0,
         "pct": 71.4
+      },
+      "Eliane Nalin": {
+        "t": 21,
+        "apr": 20,
+        "rep": 1,
+        "pot": 0,
+        "tub": 0,
+        "pct": 100.0
+      },
+      "Reinaldis Farinas": {
+        "t": 17,
+        "apr": 15,
+        "rep": 2,
+        "pot": 0,
+        "tub": 0,
+        "pct": 81.0
       }
     },
     "16/06": {
@@ -1270,6 +1438,30 @@
         "pct": 4.8
       },
       "Natan Soares": {
+        "t": 14,
+        "apr": 14,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 66.7
+      },
+      "Eliane Nalin": {
+        "t": 15,
+        "apr": 15,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 71.4
+      },
+      "Junior Schwerz": {
+        "t": 15,
+        "apr": 15,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 71.4
+      },
+      "Reinaldis Farinas": {
         "t": 14,
         "apr": 14,
         "rep": 0,
@@ -1318,6 +1510,22 @@
         "pot": 0,
         "tub": 0,
         "pct": 4.8
+      },
+      "Eliane Nalin": {
+        "t": 21,
+        "apr": 21,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 100.0
+      },
+      "Reinaldis Farinas": {
+        "t": 18,
+        "apr": 18,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 85.7
       }
     },
     "18/06": {
@@ -1360,6 +1568,22 @@
         "pot": 0,
         "tub": 0,
         "pct": 4.8
+      },
+      "Eliane Nalin": {
+        "t": 14,
+        "apr": 13,
+        "rep": 1,
+        "pot": 0,
+        "tub": 0,
+        "pct": 66.7
+      },
+      "Reinaldis Farinas": {
+        "t": 26,
+        "apr": 25,
+        "rep": 1,
+        "pot": 0,
+        "tub": 0,
+        "pct": 123.8
       }
     },
     "19/06": {
@@ -1402,6 +1626,22 @@
         "pot": 0,
         "tub": 0,
         "pct": 57.1
+      },
+      "Eliane Nalin": {
+        "t": 35,
+        "apr": 35,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 166.7
+      },
+      "Reinaldis Farinas": {
+        "t": 23,
+        "apr": 23,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 109.5
       }
     },
     "22/06": {
@@ -1428,6 +1668,38 @@
         "pot": 0,
         "tub": 0,
         "pct": 42.9
+      },
+      "Eliane Nalin": {
+        "t": 10,
+        "apr": 9,
+        "rep": 1,
+        "pot": 0,
+        "tub": 0,
+        "pct": 47.6
+      },
+      "Hanikeli Teodoro": {
+        "t": 4,
+        "apr": 4,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 19.0
+      },
+      "Junior Schwerz": {
+        "t": 44,
+        "apr": 44,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 209.5
+      },
+      "Reinaldis Farinas": {
+        "t": 33,
+        "apr": 32,
+        "rep": 1,
+        "pot": 0,
+        "tub": 0,
+        "pct": 157.1
       }
     },
     "23/06": {
@@ -1462,6 +1734,22 @@
         "pot": 0,
         "tub": 0,
         "pct": 42.9
+      },
+      "Eliane Nalin": {
+        "t": 20,
+        "apr": 19,
+        "rep": 1,
+        "pot": 0,
+        "tub": 0,
+        "pct": 95.2
+      },
+      "Reinaldis Farinas": {
+        "t": 15,
+        "apr": 15,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 71.4
       }
     },
     "24/06": {
@@ -1496,6 +1784,38 @@
         "pot": 0,
         "tub": 0,
         "pct": 4.8
+      },
+      "Eliane Nalin": {
+        "t": 20,
+        "apr": 20,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 95.2
+      },
+      "Hanikeli Teodoro": {
+        "t": 1,
+        "apr": 1,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 4.8
+      },
+      "Junior Cezar Schwerz": {
+        "t": 1,
+        "apr": 1,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 4.8
+      },
+      "Reinaldis Farinas": {
+        "t": 23,
+        "apr": 23,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 109.5
       }
     },
     "25/06": {
@@ -1530,6 +1850,22 @@
         "pot": 0,
         "tub": 0,
         "pct": 47.6
+      },
+      "Eliane Nalin": {
+        "t": 26,
+        "apr": 24,
+        "rep": 2,
+        "pot": 0,
+        "tub": 0,
+        "pct": 123.8
+      },
+      "Reinaldis Farinas": {
+        "t": 19,
+        "apr": 18,
+        "rep": 1,
+        "pot": 0,
+        "tub": 0,
+        "pct": 90.5
       }
     },
     "26/06": {
@@ -1564,6 +1900,22 @@
         "pot": 0,
         "tub": 0,
         "pct": 4.8
+      },
+      "Eliane Nalin": {
+        "t": 21,
+        "apr": 21,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 100.0
+      },
+      "Reinaldis Farinas": {
+        "t": 19,
+        "apr": 19,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 90.5
       }
     },
     "29/06": {
@@ -1598,6 +1950,22 @@
         "pot": 0,
         "tub": 0,
         "pct": 4.8
+      },
+      "Eliane Nalin": {
+        "t": 20,
+        "apr": 19,
+        "rep": 1,
+        "pot": 0,
+        "tub": 0,
+        "pct": 95.2
+      },
+      "Reinaldis Farinas": {
+        "t": 25,
+        "apr": 24,
+        "rep": 1,
+        "pot": 0,
+        "tub": 0,
+        "pct": 119.0
       }
     },
     "30/06": {
@@ -1624,8 +1992,24 @@
         "pot": 0,
         "tub": 0,
         "pct": 71.4
+      },
+      "Eliane Nalin": {
+        "t": 17,
+        "apr": 16,
+        "rep": 1,
+        "pot": 0,
+        "tub": 0,
+        "pct": 81.0
+      },
+      "Reinaldis Farinas": {
+        "t": 22,
+        "apr": 22,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 104.8
       }
     }
   },
-  "ultima_atualizacao": "29/07/2026 12:21"
+  "ultima_atualizacao": "29/07/2026 12:22"
 }
