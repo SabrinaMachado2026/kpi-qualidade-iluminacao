@@ -1366,18 +1366,18 @@ function calcularResumoMensal(){
 
   Object.entries(dias).forEach(([data, inspetoresNoDia]) => {
     const mes = data.split('/')[1];
-    if(!porMes[mes]){
-      porMes[mes] = {};
-      SETORES_MENSAL.forEach(s => { porMes[mes][s.key] = {label:s.label, t:0, apr:0, rep:0, metaTotal:0, pessoas:new Set()}; });
-    }
+    if(!porMes[mes]) porMes[mes] = {};
+
     Object.entries(inspetoresNoDia).forEach(([nome, d]) => {
       const setor = getSetor(nome);
-      if(!porMes[mes][setor]) return; // ignora inspetores sem setor mapeado ("outros")
-      porMes[mes][setor].t += d.t||0;
-      porMes[mes][setor].apr += d.apr||0;
-      porMes[mes][setor].rep += d.rep||0;
-      porMes[mes][setor].metaTotal += getMeta(nome);
-      porMes[mes][setor].pessoas.add(nomeCanonico(nome));
+      if(!SETORES_MENSAL.some(s=>s.key===setor)) return; // ignora "outros"
+      const chave = nomeCanonico(nome);
+      if(!porMes[mes][chave]){
+        porMes[mes][chave] = {nome:chave, setor, t:0, apr:0, rep:0, meta:getMeta(nome)};
+      }
+      porMes[mes][chave].t += d.t||0;
+      porMes[mes][chave].apr += d.apr||0;
+      porMes[mes][chave].rep += d.rep||0;
     });
   });
 
@@ -1425,40 +1425,49 @@ function toggleMensalMes(mes){
   renderMensalAdmin();
 }
 
-function renderMensalMesBloco(setores, tAt, tSup){
+function renderMensalMesBloco(pessoasMes, tAt, tSup){
   let totalT=0, totalApr=0, totalRep=0, totalMeta=0;
 
-  const cards = SETORES_MENSAL.map(s => {
-    const d = setores[s.key];
-    totalT += d.t; totalApr += d.apr; totalRep += d.rep; totalMeta += d.metaTotal;
-    const pctQtde = d.metaTotal ? Math.round(d.t/d.metaTotal*100) : 0;
-    const totalAvaliado = d.apr + d.rep;
-    const pctQual = totalAvaliado ? Math.round(d.apr/totalAvaliado*100) : 0;
-    const atingiuQtde = pctQtde >= tAt;
-    const corQtde = pctQtde>=tSup ? 'var(--green)' : (pctQtde>=tAt ? 'var(--amber)' : 'var(--red)');
-    const bgQtde = pctQtde>=tSup ? 'var(--green-light)' : (pctQtde>=tAt ? '#fdf3e2' : '#fdeceb');
-    const corQual = pctQual>=tAt ? 'var(--green)' : 'var(--red)';
-    const badgeTexto = atingiuQtde ? `Atingiu · ${pctQtde}%` : `Não atingiu · ${pctQtde}%`;
-    return `
-      <div style="background:var(--white);border:1px solid var(--border);border-radius:10px;padding:12px 14px">
-        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:6px">
-          <div>
-            <p style="font-weight:600;font-size:13px;margin:0;color:var(--text)">${d.label}</p>
-            <p style="font-size:10px;color:var(--muted);margin:2px 0 0">${d.pessoas.size} pessoa(s) com dados</p>
+  const gruposHtml = SETORES_MENSAL.map(s => {
+    const pessoasDoSetor = Object.values(pessoasMes).filter(p => p.setor === s.key);
+    if(pessoasDoSetor.length === 0) return '';
+
+    const cards = pessoasDoSetor.map(p => {
+      totalT += p.t; totalApr += p.apr; totalRep += p.rep; totalMeta += p.meta;
+      const pctQtde = p.meta ? Math.round(p.t/p.meta*100) : 0;
+      const totalAvaliado = p.apr + p.rep;
+      const pctQual = totalAvaliado ? Math.round(p.apr/totalAvaliado*100) : 0;
+      const atingiuQtde = pctQtde >= tAt;
+      const corQtde = pctQtde>=tSup ? 'var(--green)' : (pctQtde>=tAt ? 'var(--amber)' : 'var(--red)');
+      const bgQtde = pctQtde>=tSup ? 'var(--green-light)' : (pctQtde>=tAt ? '#fdf3e2' : '#fdeceb');
+      const corQual = pctQual>=tAt ? 'var(--green)' : 'var(--red)';
+      const badgeTexto = atingiuQtde ? `Atingiu · ${pctQtde}%` : `Não atingiu · ${pctQtde}%`;
+      return `
+        <div style="background:var(--white);border:1px solid var(--border);border-radius:10px;padding:12px 14px">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:6px">
+            <p style="font-weight:600;font-size:13px;margin:0;color:var(--text)">${p.nome}</p>
+            <span style="background:${bgQtde};color:${corQtde};font-size:10px;font-weight:600;padding:3px 8px;border-radius:999px;white-space:nowrap">${badgeTexto}</span>
           </div>
-          <span style="background:${bgQtde};color:${corQtde};font-size:10px;font-weight:600;padding:3px 8px;border-radius:999px;white-space:nowrap">${badgeTexto}</span>
+          <p style="font-size:24px;font-weight:700;color:${corQtde};margin:10px 0 4px;font-family:'IBM Plex Mono',monospace">${pctQtde}%</p>
+          <div style="background:var(--surface);border-radius:999px;height:5px;overflow:hidden;margin-bottom:8px">
+            <div style="background:${corQtde};height:100%;width:${Math.min(100,pctQtde)}%"></div>
+          </div>
+          <p style="font-size:11px;color:var(--muted);margin:0;display:flex;justify-content:space-between">
+            <span>${p.t} realizadas</span><span>meta ${p.meta}</span>
+          </p>
+          <p style="font-size:11px;color:var(--muted);margin:6px 0 0;display:flex;justify-content:space-between">
+            <span>${p.apr} aprovadas · ${p.rep} reprovadas</span>
+            <span style="color:${corQual};font-weight:600">${pctQual}%</span>
+          </p>
+        </div>`;
+    }).join('');
+
+    return `
+      <div style="margin-bottom:14px">
+        <p style="font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin:0 0 6px">${s.label}</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px">
+          ${cards}
         </div>
-        <p style="font-size:24px;font-weight:700;color:${corQtde};margin:10px 0 4px;font-family:'IBM Plex Mono',monospace">${pctQtde}%</p>
-        <div style="background:var(--surface);border-radius:999px;height:5px;overflow:hidden;margin-bottom:8px">
-          <div style="background:${corQtde};height:100%;width:${Math.min(100,pctQtde)}%"></div>
-        </div>
-        <p style="font-size:11px;color:var(--muted);margin:0;display:flex;justify-content:space-between">
-          <span>${d.t} realizadas</span><span>meta ${d.metaTotal}</span>
-        </p>
-        <p style="font-size:11px;color:var(--muted);margin:6px 0 0;display:flex;justify-content:space-between">
-          <span>${d.apr} aprovadas · ${d.rep} reprovadas</span>
-          <span style="color:${corQual};font-weight:600">${pctQual}%</span>
-        </p>
       </div>`;
   }).join('');
 
@@ -1468,9 +1477,7 @@ function renderMensalMesBloco(setores, tAt, tSup){
   const corTotal = pctQtdeTotal>=tSup ? 'var(--green)' : (pctQtdeTotal>=tAt ? 'var(--amber)' : 'var(--red)');
 
   return `
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px">
-      ${cards}
-    </div>
+    ${gruposHtml}
     <div style="margin-top:10px;padding:8px 14px;background:var(--surface);border-radius:8px;display:flex;justify-content:space-between;align-items:center;font-size:12px">
       <span style="font-weight:600">Todos os setores</span>
       <span>${totalT} de ${totalMeta} realizadas</span>
