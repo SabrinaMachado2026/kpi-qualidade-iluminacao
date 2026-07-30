@@ -615,18 +615,18 @@ const bLabel = (p,meta) => {
 
 async function carregarDados() {
   try {
-    const [rd, rc] = await Promise.all([
-      fetch(JSON_DADOS+'?t='+Date.now()),
-      fetch(JSON_CONFIG+'?t='+Date.now())
-    ]);
-    if(rd.ok) dadosGlobal = await rd.json();
-    if(rc.ok) configGlobal = await rc.json();
+    const r = await fetch(JSON_DADOS+'?t='+Date.now());
+    if(r.ok) dadosGlobal = await r.json();
   } catch(e) {
     try {
-      const r = await fetch(API+'/dados');
-      if(r.ok) dadosGlobal = await r.json();
+      const r2 = await fetch(API+'/dados');
+      if(r2.ok) dadosGlobal = await r2.json();
     } catch(e2){}
   }
+  try {
+    const rc = await fetch(JSON_CONFIG+'?t='+Date.now());
+    if(rc.ok) configGlobal = await rc.json();
+  } catch(e) {}
   inicializar();
 }
 
