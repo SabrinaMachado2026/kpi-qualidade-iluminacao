@@ -638,6 +638,13 @@ function getDia(name, dates) {
   };
 }
 
+function buscaEntradaDia(diaObj, nomeCanon){
+  for (const chave in diaObj) {
+    if (nomeCanonico(chave) === nomeCanon) return diaObj[chave];
+  }
+  return undefined;
+}
+
 function getInspetores() {
   const dias = dadosGlobal.dias||{};
   const fromData = [...new Set(Object.values(dias).flatMap(d=>Object.keys(d)).map(nomeCanonico))];
@@ -650,16 +657,17 @@ function renderDash() {
   const names = allInsp.filter(n => currentSetores.includes('todos')||currentSetores.includes(getSetor(n)));
   const data = {};
   names.forEach(n => data[n] = getDia(n, currentDates));
+  const metaAjustada = n => getMeta(n) * (data[n].dias || 1);
 
   const withData = names.filter(n=>data[n].t>0);
   const tI = withData.reduce((a,n)=>a+data[n].t, 0);
   const tA = withData.reduce((a,n)=>a+data[n].apr, 0);
   const tR = withData.reduce((a,n)=>a+data[n].rep, 0);
-  const tM = withData.reduce((a,n)=>a+getMeta(n), 0);
+  const tM = withData.reduce((a,n)=>a+metaAjustada(n), 0);
   const pG = tM ? Math.round(tI/tM*100) : 0;
-  const sup = withData.filter(n=>{ const pct=Math.round(data[n].t/getMeta(n)*100); return pct>=getTSup(); }).length;
-  const ati = withData.filter(n=>{ const pct=Math.round(data[n].t/getMeta(n)*100); return pct>=getTAt()&&pct<getTSup(); }).length;
-  const aba = withData.filter(n=>{ const pct=Math.round(data[n].t/getMeta(n)*100); return pct<getTAt(); }).length;
+  const sup = withData.filter(n=>{ const pct=Math.round(data[n].t/metaAjustada(n)*100); return pct>=getTSup(); }).length;
+  const ati = withData.filter(n=>{ const pct=Math.round(data[n].t/metaAjustada(n)*100); return pct>=getTAt()&&pct<getTSup(); }).length;
+  const aba = withData.filter(n=>{ const pct=Math.round(data[n].t/metaAjustada(n)*100); return pct<getTAt(); }).length;
   const aP  = tI ? Math.round(tA/tI*100) : 0;
   const pLabel = currentDates.includes('geral') ? 'período completo' : currentDates.length===1 ? 'dia '+currentDates[0] : currentDates.length+' dias';
   const gc = pG>=getTSup()?'var(--green)':pG>=getTAt()?'var(--amber)':'var(--red)';
@@ -686,7 +694,8 @@ function renderDash() {
     const card = document.createElement('div');
     card.className = 'icard'+((!d.t)?' pending':'');
     const init = getInit(name), sl = getSetorLabel(name);
-    const meta = getMeta(name);
+    const metaBase = getMeta(name);
+    const meta = metaBase * (d.dias || 1);
     if(!d.t) {
       card.innerHTML=`<div class="icard-hdr"><div class="icard-info"><div class="avatar">${init}</div><div><div class="iname">${name}</div><div class="isub">${sl}</div></div></div></div><div class="pending-msg">sem dados</div>`;
     } else {
@@ -729,7 +738,7 @@ function renderRanking() {
   allInsp.forEach(n=>{
     const d = getDia(n,currentDates);
     if(d.t>0){
-      const meta=getMeta(n), pct=Math.round(d.t/meta*100);
+      const meta=getMeta(n)*(d.dias||1), pct=Math.round(d.t/meta*100);
       if(pct>topPct){topPct=pct;topName=n;topDia=currentDates.includes('geral')?'período':currentDates[0];}
       totalPct+=pct; totalCnt++;
     }
@@ -743,7 +752,7 @@ function renderRanking() {
   allInsp.forEach(n=>{
     let streak=0, maxS=0;
     allDias.forEach(d=>{
-      const dd=(dias[d]||{})[n];
+      const dd=buscaEntradaDia(dias[d]||{}, n);
       if(dd){const pct=Math.round(dd.t/getMeta(n)*100);if(pct>=getTAt()){streak++;maxS=Math.max(maxS,streak);}else streak=0;}
       else streak=0;
     });
@@ -758,11 +767,11 @@ function renderRanking() {
   allInsp.forEach(n=>{
     const d=getDia(n,currentDates);
     if(d.t>0){
-      const pct=Math.round(d.t/getMeta(n)*100);
+      const pct=Math.round(d.t/(getMeta(n)*(d.dias||1))*100);
       if(pct<getTAt()){
         const useDates=currentDates.includes('geral')?allDias:currentDates;
         useDates.forEach(dia=>{
-          const dd=(dias[dia]||{})[n];
+          const dd=buscaEntradaDia(dias[dia]||{}, n);
           if(dd&&Math.round(dd.t/getMeta(n)*100)<getTAt()){
             const temJust=justs.some(j=>j.inspetor===n&&j.data===dia);
             if(!temJust) pendentes++;
@@ -777,7 +786,7 @@ function renderRanking() {
   const useDias = currentDates.includes('geral')?allDias:(allDias.length>0?allDias:[]);
   const mediasDia = useDias.map(d=>{
     let s=0,c=0;
-    allInsp.forEach(n=>{const dd=(dias[d]||{})[n];if(dd){s+=Math.round(dd.t/getMeta(n)*100);c++;}});
+    allInsp.forEach(n=>{const dd=buscaEntradaDia(dias[d]||{}, n);if(dd){s+=Math.round(dd.t/getMeta(n)*100);c++;}});
     return c?Math.round(s/c):null;
   });
   const temDadosEvolucao = mediasDia.some(v=>v!==null);
@@ -826,7 +835,7 @@ function renderRanking() {
   const lastDia = allDias[allDias.length-1];
   let dSup=0,dAti=0,dAba=0;
   allInsp.forEach(n=>{
-    const dd=(dias[lastDia]||{})[n];
+    const dd=buscaEntradaDia(dias[lastDia]||{}, n);
     if(dd){const pct=Math.round(dd.t/getMeta(n)*100);if(pct>=getTSup())dSup++;else if(pct>=getTAt())dAti++;else dAba++;}
   });
   const totalDonut = dSup+dAti+dAba;
@@ -856,7 +865,7 @@ function renderRanking() {
     </div>`;
 
   // Ranking barras
-  const rankData = allInsp.map(n=>{const d=getDia(n,currentDates);return{name:n,t:d.t,meta:getMeta(n),pct:d.t?Math.round(d.t/getMeta(n)*100):0};}).filter(r=>r.t>0).sort((a,b)=>b.pct-a.pct);
+  const rankData = allInsp.map(n=>{const d=getDia(n,currentDates);const m=getMeta(n)*(d.dias||1);return{name:n,t:d.t,meta:m,pct:d.t?Math.round(d.t/m*100):0};}).filter(r=>r.t>0).sort((a,b)=>b.pct-a.pct);
   const rb = document.getElementById('rank-bars');
   rb.innerHTML = rankData.length===0?'<div class="empty-state">Sem dados</div>':rankData.map((r,i)=>`
     <div class="rank-bar-row">
@@ -866,13 +875,13 @@ function renderRanking() {
     </div>`).join('');
 
   // Heatmap
-  const hmInsp = allInsp.filter(n=>Object.values(dias).some(d=>d[n]));
+  const hmInsp = allInsp.filter(n=>Object.values(dias).some(d=>buscaEntradaDia(d,n)));
   const hmDias = allDias.slice(-8);
   const tbl = document.getElementById('hmap-table');
   let head='<tr><th></th>'+hmDias.map(d=>`<th>${d}</th>`).join('')+'</tr>';
   let body=hmInsp.map(n=>{
     let cells=hmDias.map(d=>{
-      const dd=(dias[d]||{})[n];
+      const dd=buscaEntradaDia(dias[d]||{}, n);
       if(!dd)return'<td><div class="hcell" style="background:var(--surface);color:var(--muted)">—</div></td>';
       const pct=Math.round(dd.t/getMeta(n)*100);
       const bg=pct>=getTSup()?'#1CB85A':pct>=getTAt()?'#b8d99a':pct>=60?'#fac775':'#E24B4A';
@@ -885,9 +894,9 @@ function renderRanking() {
 
   // Consecutivos
   const cl=document.getElementById('consec-list');
-  const consecData=allInsp.filter(n=>Object.values(dias).some(d=>d[n])).map(n=>{
+  const consecData=allInsp.filter(n=>Object.values(dias).some(d=>buscaEntradaDia(d,n))).map(n=>{
     let streak=0,maxS=0;
-    allDias.forEach(d=>{const dd=(dias[d]||{})[n];if(dd){const p=Math.round(dd.t/getMeta(n)*100);if(p>=getTAt()){streak++;maxS=Math.max(maxS,streak);}else streak=0;}else streak=0;});
+    allDias.forEach(d=>{const dd=buscaEntradaDia(dias[d]||{}, n);if(dd){const p=Math.round(dd.t/getMeta(n)*100);if(p>=getTAt()){streak++;maxS=Math.max(maxS,streak);}else streak=0;}else streak=0;});
     return{name:n,consec:maxS};
   }).filter(c=>c.consec>0).sort((a,b)=>b.consec-a.consec).slice(0,6);
   const maxC=Math.max(...consecData.map(c=>c.consec),1);
@@ -969,7 +978,7 @@ function toggleMonth(mm, diasOrdenados){
 function setMonth(mm, diasOrdenados){
   currentMonth = mm;
   const diasDoMes = diasOrdenados.filter(d => d.split('/')[1]===mm);
-  currentDates = diasDoMes.length>0 ? [diasDoMes[diasDoMes.length-1]] : [];
+  currentDates = diasDoMes.length>0 ? [...diasDoMes] : [];
   document.getElementById('date-wrap').style.display = 'block';
   renderMonthTabs(diasOrdenados);
   renderDateTabsFiltered(diasOrdenados);
@@ -1366,18 +1375,18 @@ function calcularResumoMensal(){
 
   Object.entries(dias).forEach(([data, inspetoresNoDia]) => {
     const mes = data.split('/')[1];
-    if(!porMes[mes]) porMes[mes] = {};
-
+    if(!porMes[mes]){
+      porMes[mes] = {};
+      SETORES_MENSAL.forEach(s => { porMes[mes][s.key] = {label:s.label, t:0, apr:0, rep:0, metaTotal:0, pessoas:new Set()}; });
+    }
     Object.entries(inspetoresNoDia).forEach(([nome, d]) => {
       const setor = getSetor(nome);
-      if(!SETORES_MENSAL.some(s=>s.key===setor)) return; // ignora "outros"
-      const chave = nomeCanonico(nome);
-      if(!porMes[mes][chave]){
-        porMes[mes][chave] = {nome:chave, setor, t:0, apr:0, rep:0, meta:getMeta(nome)};
-      }
-      porMes[mes][chave].t += d.t||0;
-      porMes[mes][chave].apr += d.apr||0;
-      porMes[mes][chave].rep += d.rep||0;
+      if(!porMes[mes][setor]) return; // ignora inspetores sem setor mapeado ("outros")
+      porMes[mes][setor].t += d.t||0;
+      porMes[mes][setor].apr += d.apr||0;
+      porMes[mes][setor].rep += d.rep||0;
+      porMes[mes][setor].metaTotal += getMeta(nome);
+      porMes[mes][setor].pessoas.add(nomeCanonico(nome));
     });
   });
 
@@ -1425,49 +1434,40 @@ function toggleMensalMes(mes){
   renderMensalAdmin();
 }
 
-function renderMensalMesBloco(pessoasMes, tAt, tSup){
+function renderMensalMesBloco(setores, tAt, tSup){
   let totalT=0, totalApr=0, totalRep=0, totalMeta=0;
 
-  const gruposHtml = SETORES_MENSAL.map(s => {
-    const pessoasDoSetor = Object.values(pessoasMes).filter(p => p.setor === s.key);
-    if(pessoasDoSetor.length === 0) return '';
-
-    const cards = pessoasDoSetor.map(p => {
-      totalT += p.t; totalApr += p.apr; totalRep += p.rep; totalMeta += p.meta;
-      const pctQtde = p.meta ? Math.round(p.t/p.meta*100) : 0;
-      const totalAvaliado = p.apr + p.rep;
-      const pctQual = totalAvaliado ? Math.round(p.apr/totalAvaliado*100) : 0;
-      const atingiuQtde = pctQtde >= tAt;
-      const corQtde = pctQtde>=tSup ? 'var(--green)' : (pctQtde>=tAt ? 'var(--amber)' : 'var(--red)');
-      const bgQtde = pctQtde>=tSup ? 'var(--green-light)' : (pctQtde>=tAt ? '#fdf3e2' : '#fdeceb');
-      const corQual = pctQual>=tAt ? 'var(--green)' : 'var(--red)';
-      const badgeTexto = atingiuQtde ? `Atingiu · ${pctQtde}%` : `Não atingiu · ${pctQtde}%`;
-      return `
-        <div style="background:var(--white);border:1px solid var(--border);border-radius:10px;padding:12px 14px">
-          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:6px">
-            <p style="font-weight:600;font-size:13px;margin:0;color:var(--text)">${p.nome}</p>
-            <span style="background:${bgQtde};color:${corQtde};font-size:10px;font-weight:600;padding:3px 8px;border-radius:999px;white-space:nowrap">${badgeTexto}</span>
-          </div>
-          <p style="font-size:24px;font-weight:700;color:${corQtde};margin:10px 0 4px;font-family:'IBM Plex Mono',monospace">${pctQtde}%</p>
-          <div style="background:var(--surface);border-radius:999px;height:5px;overflow:hidden;margin-bottom:8px">
-            <div style="background:${corQtde};height:100%;width:${Math.min(100,pctQtde)}%"></div>
-          </div>
-          <p style="font-size:11px;color:var(--muted);margin:0;display:flex;justify-content:space-between">
-            <span>${p.t} realizadas</span><span>meta ${p.meta}</span>
-          </p>
-          <p style="font-size:11px;color:var(--muted);margin:6px 0 0;display:flex;justify-content:space-between">
-            <span>${p.apr} aprovadas · ${p.rep} reprovadas</span>
-            <span style="color:${corQual};font-weight:600">${pctQual}%</span>
-          </p>
-        </div>`;
-    }).join('');
-
+  const cards = SETORES_MENSAL.map(s => {
+    const d = setores[s.key];
+    totalT += d.t; totalApr += d.apr; totalRep += d.rep; totalMeta += d.metaTotal;
+    const pctQtde = d.metaTotal ? Math.round(d.t/d.metaTotal*100) : 0;
+    const totalAvaliado = d.apr + d.rep;
+    const pctQual = totalAvaliado ? Math.round(d.apr/totalAvaliado*100) : 0;
+    const atingiuQtde = pctQtde >= tAt;
+    const corQtde = pctQtde>=tSup ? 'var(--green)' : (pctQtde>=tAt ? 'var(--amber)' : 'var(--red)');
+    const bgQtde = pctQtde>=tSup ? 'var(--green-light)' : (pctQtde>=tAt ? '#fdf3e2' : '#fdeceb');
+    const corQual = pctQual>=tAt ? 'var(--green)' : 'var(--red)';
+    const badgeTexto = atingiuQtde ? `Atingiu · ${pctQtde}%` : `Não atingiu · ${pctQtde}%`;
     return `
-      <div style="margin-bottom:14px">
-        <p style="font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin:0 0 6px">${s.label}</p>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px">
-          ${cards}
+      <div style="background:var(--white);border:1px solid var(--border);border-radius:10px;padding:12px 14px">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:6px">
+          <div>
+            <p style="font-weight:600;font-size:13px;margin:0;color:var(--text)">${d.label}</p>
+            <p style="font-size:10px;color:var(--muted);margin:2px 0 0">${d.pessoas.size} pessoa(s) com dados</p>
+          </div>
+          <span style="background:${bgQtde};color:${corQtde};font-size:10px;font-weight:600;padding:3px 8px;border-radius:999px;white-space:nowrap">${badgeTexto}</span>
         </div>
+        <p style="font-size:24px;font-weight:700;color:${corQtde};margin:10px 0 4px;font-family:'IBM Plex Mono',monospace">${pctQtde}%</p>
+        <div style="background:var(--surface);border-radius:999px;height:5px;overflow:hidden;margin-bottom:8px">
+          <div style="background:${corQtde};height:100%;width:${Math.min(100,pctQtde)}%"></div>
+        </div>
+        <p style="font-size:11px;color:var(--muted);margin:0;display:flex;justify-content:space-between">
+          <span>${d.t} realizadas</span><span>meta ${d.metaTotal}</span>
+        </p>
+        <p style="font-size:11px;color:var(--muted);margin:6px 0 0;display:flex;justify-content:space-between">
+          <span>${d.apr} aprovadas · ${d.rep} reprovadas</span>
+          <span style="color:${corQual};font-weight:600">${pctQual}%</span>
+        </p>
       </div>`;
   }).join('');
 
@@ -1477,7 +1477,9 @@ function renderMensalMesBloco(pessoasMes, tAt, tSup){
   const corTotal = pctQtdeTotal>=tSup ? 'var(--green)' : (pctQtdeTotal>=tAt ? 'var(--amber)' : 'var(--red)');
 
   return `
-    ${gruposHtml}
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px">
+      ${cards}
+    </div>
     <div style="margin-top:10px;padding:8px 14px;background:var(--surface);border-radius:8px;display:flex;justify-content:space-between;align-items:center;font-size:12px">
       <span style="font-weight:600">Todos os setores</span>
       <span>${totalT} de ${totalMeta} realizadas</span>
