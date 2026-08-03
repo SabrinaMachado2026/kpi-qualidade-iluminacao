@@ -2026,6 +2026,14 @@
         "pot": 0,
         "tub": 0,
         "pct": 42.9
+      },
+      "Jaqueline Tais Reimundo": {
+        "t": 8,
+        "apr": 8,
+        "rep": 0,
+        "pot": 0,
+        "tub": 8,
+        "pct": 38.1
       }
     },
     "02/07": {
@@ -2044,6 +2052,22 @@
         "pot": 0,
         "tub": 0,
         "pct": 38.1
+      },
+      "Jaqueline Tais Reimundo": {
+        "t": 18,
+        "apr": 18,
+        "rep": 0,
+        "pot": 4,
+        "tub": 14,
+        "pct": 85.7
+      },
+      "Maristela Poter": {
+        "t": 9,
+        "apr": 9,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 42.9
       }
     },
     "03/07": {
@@ -2062,6 +2086,22 @@
         "pot": 0,
         "tub": 0,
         "pct": 38.1
+      },
+      "Jaqueline Tais Reimundo": {
+        "t": 19,
+        "apr": 19,
+        "rep": 0,
+        "pot": 7,
+        "tub": 12,
+        "pct": 90.5
+      },
+      "Maristela Poter": {
+        "t": 9,
+        "apr": 9,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 42.9
       }
     },
     "06/07": {
@@ -2074,6 +2114,30 @@
         "pct": 9.5
       },
       "Natan Soares": {
+        "t": 9,
+        "apr": 9,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 42.9
+      },
+      "Jaqueline Tais Reimundo": {
+        "t": 32,
+        "apr": 32,
+        "rep": 0,
+        "pot": 19,
+        "tub": 13,
+        "pct": 152.4
+      },
+      "Marileia Goettems": {
+        "t": 26,
+        "apr": 26,
+        "rep": 0,
+        "pot": 16,
+        "tub": 10,
+        "pct": 123.8
+      },
+      "Maristela Poter": {
         "t": 9,
         "apr": 9,
         "rep": 0,
@@ -2098,6 +2162,30 @@
         "pot": 0,
         "tub": 0,
         "pct": 23.8
+      },
+      "Jaqueline Tais Reimundo": {
+        "t": 11,
+        "apr": 11,
+        "rep": 0,
+        "pot": 0,
+        "tub": 11,
+        "pct": 52.4
+      },
+      "Marileia Goettems": {
+        "t": 14,
+        "apr": 14,
+        "rep": 0,
+        "pot": 10,
+        "tub": 4,
+        "pct": 66.7
+      },
+      "Maristela Poter": {
+        "t": 9,
+        "apr": 9,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 42.9
       }
     },
     "09/07": {
@@ -2116,6 +2204,30 @@
         "pot": 0,
         "tub": 0,
         "pct": 47.6
+      },
+      "Jaqueline Tais Reimundo": {
+        "t": 18,
+        "apr": 18,
+        "rep": 0,
+        "pot": 0,
+        "tub": 18,
+        "pct": 85.7
+      },
+      "Marileia Goettems": {
+        "t": 7,
+        "apr": 7,
+        "rep": 0,
+        "pot": 0,
+        "tub": 7,
+        "pct": 33.3
+      },
+      "Maristela Poter": {
+        "t": 9,
+        "apr": 9,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 42.9
       }
     },
     "10/07": {
@@ -2128,12 +2240,28 @@
         "pct": 9.5
       },
       "Natan Soares": {
-        "t": 9,
-        "apr": 9,
+        "t": 1,
+        "apr": 1,
         "rep": 0,
         "pot": 0,
         "tub": 0,
-        "pct": 42.9
+        "pct": 4.8
+      },
+      "Jaqueline Tais Reimundo": {
+        "t": 28,
+        "apr": 28,
+        "rep": 0,
+        "pot": 6,
+        "tub": 12,
+        "pct": 133.3
+      },
+      "Marileia Goettems": {
+        "t": 15,
+        "apr": 15,
+        "rep": 0,
+        "pot": 11,
+        "tub": 4,
+        "pct": 71.4
       }
     },
     "13/07": {
@@ -2146,12 +2274,36 @@
         "pct": 4.8
       },
       "Natan Soares": {
-        "t": 10,
-        "apr": 10,
+        "t": 2,
+        "apr": 2,
         "rep": 0,
         "pot": 0,
         "tub": 0,
-        "pct": 47.6
+        "pct": 9.5
+      },
+      "Jaqueline Tais Reimundo": {
+        "t": 37,
+        "apr": 37,
+        "rep": 0,
+        "pot": 21,
+        "tub": 16,
+        "pct": 176.2
+      },
+      "Marileia Goettems": {
+        "t": 32,
+        "apr": 32,
+        "rep": 0,
+        "pot": 23,
+        "tub": 9,
+        "pct": 152.4
+      },
+      "Maristela Poter": {
+        "t": 9,
+        "apr": 9,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 42.9
       }
     },
     "14/07": {
@@ -2164,12 +2316,28 @@
         "pct": 4.8
       },
       "Natan Soares": {
-        "t": 6,
-        "apr": 6,
+        "t": 2,
+        "apr": 2,
         "rep": 0,
         "pot": 0,
         "tub": 0,
-        "pct": 28.6
+        "pct": 9.5
+      },
+      "Jaqueline Tais Reimundo": {
+        "t": 26,
+        "apr": 26,
+        "rep": 0,
+        "pot": 19,
+        "tub": 7,
+        "pct": 123.8
+      },
+      "Marileia Goettems": {
+        "t": 16,
+        "apr": 16,
+        "rep": 0,
+        "pot": 11,
+        "tub": 5,
+        "pct": 76.2
       }
     },
     "15/07": {
@@ -2188,6 +2356,22 @@
         "pot": 0,
         "tub": 0,
         "pct": 61.9
+      },
+      "Jaqueline Tais Reimundo": {
+        "t": 19,
+        "apr": 19,
+        "rep": 0,
+        "pot": 2,
+        "tub": 13,
+        "pct": 90.5
+      },
+      "Marileia Goettems": {
+        "t": 7,
+        "apr": 7,
+        "rep": 0,
+        "pot": 0,
+        "tub": 7,
+        "pct": 33.3
       }
     },
     "21/07": {
@@ -2206,6 +2390,22 @@
         "pot": 0,
         "tub": 0,
         "pct": 57.1
+      },
+      "Jaqueline Tais Reimundo": {
+        "t": 29,
+        "apr": 29,
+        "rep": 0,
+        "pot": 8,
+        "tub": 11,
+        "pct": 138.1
+      },
+      "Marileia Goettems": {
+        "t": 19,
+        "apr": 19,
+        "rep": 0,
+        "pot": 1,
+        "tub": 8,
+        "pct": 90.5
       }
     },
     "22/07": {
@@ -2224,6 +2424,22 @@
         "pot": 0,
         "tub": 0,
         "pct": 52.4
+      },
+      "Jaqueline Tais Reimundo": {
+        "t": 32,
+        "apr": 32,
+        "rep": 0,
+        "pot": 18,
+        "tub": 9,
+        "pct": 152.4
+      },
+      "Marileia Goettems": {
+        "t": 25,
+        "apr": 25,
+        "rep": 0,
+        "pot": 9,
+        "tub": 10,
+        "pct": 119.0
       }
     },
     "23/07": {
@@ -2236,12 +2452,28 @@
         "pct": 4.8
       },
       "Natan Soares": {
-        "t": 11,
-        "apr": 11,
+        "t": 1,
+        "apr": 1,
         "rep": 0,
         "pot": 0,
         "tub": 0,
-        "pct": 52.4
+        "pct": 4.8
+      },
+      "Jaqueline Tais Reimundo": {
+        "t": 21,
+        "apr": 21,
+        "rep": 0,
+        "pot": 8,
+        "tub": 13,
+        "pct": 100.0
+      },
+      "Marileia Goettems": {
+        "t": 22,
+        "apr": 22,
+        "rep": 0,
+        "pot": 14,
+        "tub": 8,
+        "pct": 104.8
       }
     },
     "27/07": {
@@ -2254,12 +2486,28 @@
         "pct": 4.8
       },
       "Natan Soares": {
-        "t": 10,
-        "apr": 10,
+        "t": 2,
+        "apr": 2,
         "rep": 0,
         "pot": 0,
         "tub": 0,
-        "pct": 47.6
+        "pct": 9.5
+      },
+      "Jaqueline Tais Reimundo": {
+        "t": 29,
+        "apr": 29,
+        "rep": 0,
+        "pot": 17,
+        "tub": 10,
+        "pct": 138.1
+      },
+      "Marileia Goettems": {
+        "t": 33,
+        "apr": 33,
+        "rep": 0,
+        "pot": 20,
+        "tub": 9,
+        "pct": 157.1
       }
     },
     "28/07": {
@@ -2278,6 +2526,38 @@
         "pot": 0,
         "tub": 0,
         "pct": 52.4
+      },
+      "Jaqueline Tais Reimundo": {
+        "t": 32,
+        "apr": 32,
+        "rep": 0,
+        "pot": 6,
+        "tub": 20,
+        "pct": 152.4
+      },
+      "Marileia Goettems": {
+        "t": 35,
+        "apr": 35,
+        "rep": 0,
+        "pot": 11,
+        "tub": 17,
+        "pct": 166.7
+      },
+      "Maristela Poter": {
+        "t": 9,
+        "apr": 9,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 42.9
+      },
+      "Sabrina Carla Kellerer Machado de Oliveira": {
+        "t": 1,
+        "apr": 1,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 4.8
       }
     },
     "29/07": {
@@ -2296,6 +2576,30 @@
         "pot": 0,
         "tub": 0,
         "pct": 47.6
+      },
+      "Jaqueline Tais Reimundo": {
+        "t": 27,
+        "apr": 27,
+        "rep": 0,
+        "pot": 3,
+        "tub": 11,
+        "pct": 128.6
+      },
+      "Marileia Goettems": {
+        "t": 23,
+        "apr": 23,
+        "rep": 0,
+        "pot": 11,
+        "tub": 10,
+        "pct": 109.5
+      },
+      "Maristela Poter": {
+        "t": 9,
+        "apr": 9,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 42.9
       }
     },
     "07/07": {
@@ -2306,6 +2610,30 @@
         "pot": 0,
         "tub": 0,
         "pct": 66.7
+      },
+      "Jaqueline Tais Reimundo": {
+        "t": 37,
+        "apr": 37,
+        "rep": 0,
+        "pot": 20,
+        "tub": 17,
+        "pct": 176.2
+      },
+      "Marileia Goettems": {
+        "t": 26,
+        "apr": 26,
+        "rep": 0,
+        "pot": 18,
+        "tub": 8,
+        "pct": 123.8
+      },
+      "Maristela Poter": {
+        "t": 9,
+        "apr": 9,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 42.9
       }
     },
     "16/07": {
@@ -2316,6 +2644,22 @@
         "pot": 0,
         "tub": 0,
         "pct": 52.4
+      },
+      "Jaqueline Tais Reimundo": {
+        "t": 30,
+        "apr": 30,
+        "rep": 0,
+        "pot": 18,
+        "tub": 9,
+        "pct": 142.9
+      },
+      "Marileia Goettems": {
+        "t": 18,
+        "apr": 18,
+        "rep": 0,
+        "pot": 11,
+        "tub": 4,
+        "pct": 85.7
       }
     },
     "17/07": {
@@ -2326,6 +2670,22 @@
         "pot": 0,
         "tub": 0,
         "pct": 76.2
+      },
+      "Jaqueline Tais Reimundo": {
+        "t": 20,
+        "apr": 20,
+        "rep": 0,
+        "pot": 1,
+        "tub": 9,
+        "pct": 95.2
+      },
+      "Marileia Goettems": {
+        "t": 7,
+        "apr": 7,
+        "rep": 0,
+        "pot": 0,
+        "tub": 4,
+        "pct": 33.3
       }
     },
     "20/07": {
@@ -2336,6 +2696,22 @@
         "pot": 0,
         "tub": 0,
         "pct": 57.1
+      },
+      "Jaqueline Tais Reimundo": {
+        "t": 16,
+        "apr": 16,
+        "rep": 0,
+        "pot": 1,
+        "tub": 8,
+        "pct": 76.2
+      },
+      "Marileia Goettems": {
+        "t": 15,
+        "apr": 15,
+        "rep": 0,
+        "pot": 7,
+        "tub": 1,
+        "pct": 71.4
       }
     },
     "24/07": {
@@ -2346,6 +2722,22 @@
         "pot": 0,
         "tub": 0,
         "pct": 42.9
+      },
+      "Jaqueline Tais Reimundo": {
+        "t": 15,
+        "apr": 15,
+        "rep": 0,
+        "pot": 2,
+        "tub": 13,
+        "pct": 71.4
+      },
+      "Marileia Goettems": {
+        "t": 11,
+        "apr": 11,
+        "rep": 0,
+        "pot": 5,
+        "tub": 6,
+        "pct": 52.4
       }
     },
     "30/07": {
@@ -2356,6 +2748,22 @@
         "pot": 0,
         "tub": 0,
         "pct": 66.7
+      },
+      "Jaqueline Tais Reimundo": {
+        "t": 13,
+        "apr": 13,
+        "rep": 0,
+        "pot": 0,
+        "tub": 13,
+        "pct": 61.9
+      },
+      "Marileia Goettems": {
+        "t": 27,
+        "apr": 27,
+        "rep": 0,
+        "pot": 0,
+        "tub": 10,
+        "pct": 128.6
       }
     },
     "31/07": {
@@ -2366,6 +2774,30 @@
         "pot": 0,
         "tub": 0,
         "pct": 38.1
+      },
+      "Jaqueline Tais Reimundo": {
+        "t": 20,
+        "apr": 20,
+        "rep": 0,
+        "pot": 9,
+        "tub": 10,
+        "pct": 95.2
+      },
+      "Marileia Goettems": {
+        "t": 28,
+        "apr": 28,
+        "rep": 0,
+        "pot": 12,
+        "tub": 12,
+        "pct": 133.3
+      },
+      "Maristela Poter": {
+        "t": 9,
+        "apr": 9,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 42.9
       }
     }
   },
