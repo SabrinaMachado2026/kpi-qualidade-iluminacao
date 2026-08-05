@@ -3191,7 +3191,53 @@
         "tub": 0,
         "pct": 204.8
       }
+    },
+    "03/08": {
+      "Bruna Muller Travessini": {
+        "t": 1,
+        "apr": 1,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 4.8
+      },
+      "Natan Soares": {
+        "t": 10,
+        "apr": 10,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 47.6
+      }
+    },
+    "04/08": {
+      "Bruna Muller Travessini": {
+        "t": 2,
+        "apr": 2,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 9.5
+      },
+      "Natan Soares": {
+        "t": 9,
+        "apr": 9,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 42.9
+      }
+    },
+    "05/08": {
+      "Natan Soares": {
+        "t": 11,
+        "apr": 11,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 52.4
+      }
     }
   },
-  "ultima_atualizacao": "03/08/2026 12:38"
+  "ultima_atualizacao": "05/08/2026 18:33"
 }
