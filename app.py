@@ -91,7 +91,15 @@ def get_config():
     return data, sha
 
 def processar_xlsx(file):
-    df = pd.read_excel(file)
+    COLUNAS_NECESSARIAS = [
+        'Código da avaliação', 'Item', 'Resposta', 'Data inicial', 'Tipo de Unidade'
+    ]
+    try:
+        df = pd.read_excel(file, usecols=COLUNAS_NECESSARIAS)
+    except ValueError:
+        # fallback: se alguma coluna não existir com esse nome exato, lê tudo
+        df = pd.read_excel(file)
+        df = df[[c for c in COLUNAS_NECESSARIAS if c in df.columns]]
     df.columns = df.columns.str.strip()
 
     # Item padrão (modelo mais recente de checklist)
