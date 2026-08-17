@@ -3626,12 +3626,12 @@
         "pct": 38.1
       },
       "Reinaldis Farinas": {
-        "t": 18,
-        "apr": 17,
+        "t": 19,
+        "apr": 18,
         "rep": 1,
         "pot": 0,
         "tub": 0,
-        "pct": 85.7
+        "pct": 90.5
       },
       "Hanikeli Teodoro": {
         "t": 1,
@@ -3685,5 +3685,5 @@
       }
     }
   },
-  "ultima_atualizacao": "17/08/2026 19:05"
+  "ultima_atualizacao": "17/08/2026 19:23"
 }
