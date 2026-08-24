@@ -3700,6 +3700,22 @@
         "pot": 0,
         "tub": 0,
         "pct": 138.1
+      },
+      "Jaqueline Tais Reimundo": {
+        "t": 44,
+        "apr": 44,
+        "rep": 0,
+        "pot": 17,
+        "tub": 27,
+        "pct": 209.5
+      },
+      "Marileia Goettems": {
+        "t": 41,
+        "apr": 41,
+        "rep": 0,
+        "pot": 27,
+        "tub": 13,
+        "pct": 195.2
       }
     },
     "18/08": {
@@ -3718,6 +3734,22 @@
         "pot": 0,
         "tub": 0,
         "pct": 100.0
+      },
+      "Jaqueline Tais Reimundo": {
+        "t": 28,
+        "apr": 28,
+        "rep": 0,
+        "pot": 6,
+        "tub": 19,
+        "pct": 133.3
+      },
+      "Marileia Goettems": {
+        "t": 27,
+        "apr": 27,
+        "rep": 0,
+        "pot": 9,
+        "tub": 7,
+        "pct": 128.6
       }
     },
     "19/08": {
@@ -3736,6 +3768,22 @@
         "pot": 0,
         "tub": 0,
         "pct": 109.5
+      },
+      "Jaqueline Tais Reimundo": {
+        "t": 30,
+        "apr": 30,
+        "rep": 0,
+        "pot": 13,
+        "tub": 13,
+        "pct": 142.9
+      },
+      "Marileia Goettems": {
+        "t": 30,
+        "apr": 30,
+        "rep": 0,
+        "pot": 19,
+        "tub": 11,
+        "pct": 142.9
       }
     },
     "21/08": {
@@ -3807,5 +3855,5 @@
       }
     }
   },
-  "ultima_atualizacao": "24/08/2026 20:14"
+  "ultima_atualizacao": "24/08/2026 20:18"
 }
