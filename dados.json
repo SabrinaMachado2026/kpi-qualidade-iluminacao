@@ -3716,6 +3716,22 @@
         "pot": 27,
         "tub": 13,
         "pct": 195.2
+      },
+      "Bruna Muller Travessini": {
+        "t": 1,
+        "apr": 1,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 4.8
+      },
+      "Natan Soares": {
+        "t": 15,
+        "apr": 15,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 71.4
       }
     },
     "18/08": {
@@ -3750,6 +3766,14 @@
         "pot": 9,
         "tub": 7,
         "pct": 128.6
+      },
+      "Natan Soares": {
+        "t": 14,
+        "apr": 14,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 66.7
       }
     },
     "19/08": {
@@ -3784,6 +3808,22 @@
         "pot": 19,
         "tub": 11,
         "pct": 142.9
+      },
+      "Bruna Muller Travessini": {
+        "t": 1,
+        "apr": 1,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 4.8
+      },
+      "Natan Soares": {
+        "t": 7,
+        "apr": 7,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 33.3
       }
     },
     "21/08": {
@@ -3818,6 +3858,14 @@
         "pot": 0,
         "tub": 0,
         "pct": 114.3
+      },
+      "Natan Soares": {
+        "t": 16,
+        "apr": 16,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 76.2
       }
     },
     "20/08": {
@@ -3852,6 +3900,22 @@
         "pot": 0,
         "tub": 0,
         "pct": 100.0
+      },
+      "Bruna Muller Travessini": {
+        "t": 1,
+        "apr": 1,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 4.8
+      },
+      "Natan Soares": {
+        "t": 14,
+        "apr": 14,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 66.7
       }
     },
     "24/08": {
@@ -3886,8 +3950,16 @@
         "pot": 0,
         "tub": 0,
         "pct": 90.5
+      },
+      "Natan Soares": {
+        "t": 15,
+        "apr": 15,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 71.4
       }
     }
   },
-  "ultima_atualizacao": "25/08/2026 10:59"
+  "ultima_atualizacao": "25/08/2026 11:04"
 }
