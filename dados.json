@@ -3959,7 +3959,99 @@
         "tub": 0,
         "pct": 71.4
       }
+    },
+    "26/08": {
+      "Bruna Muller Travessini": {
+        "t": 1,
+        "apr": 1,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 4.8
+      },
+      "Eliane Nalin": {
+        "t": 18,
+        "apr": 18,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 85.7
+      },
+      "Jaqueline Tais Reimundo": {
+        "t": 32,
+        "apr": 32,
+        "rep": 0,
+        "pot": 7,
+        "tub": 17,
+        "pct": 152.4
+      },
+      "Marileia Goettems": {
+        "t": 29,
+        "apr": 29,
+        "rep": 0,
+        "pot": 16,
+        "tub": 3,
+        "pct": 138.1
+      },
+      "Natan Soares": {
+        "t": 15,
+        "apr": 15,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 71.4
+      },
+      "Reinaldis Farinas": {
+        "t": 15,
+        "apr": 15,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 71.4
+      }
+    },
+    "25/08": {
+      "Eliane Nalin": {
+        "t": 22,
+        "apr": 22,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 104.8
+      },
+      "Jaqueline Tais Reimundo": {
+        "t": 27,
+        "apr": 27,
+        "rep": 0,
+        "pot": 12,
+        "tub": 12,
+        "pct": 128.6
+      },
+      "Marileia Goettems": {
+        "t": 25,
+        "apr": 25,
+        "rep": 0,
+        "pot": 16,
+        "tub": 7,
+        "pct": 119.0
+      },
+      "Natan Soares": {
+        "t": 15,
+        "apr": 15,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 71.4
+      },
+      "Reinaldis Farinas": {
+        "t": 8,
+        "apr": 8,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 38.1
+      }
     }
   },
-  "ultima_atualizacao": "25/08/2026 11:05"
+  "ultima_atualizacao": "27/08/2026 13:10"
 }
