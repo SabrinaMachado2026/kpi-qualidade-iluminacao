@@ -4093,7 +4093,91 @@
         "tub": 0,
         "pct": 100.0
       }
+    },
+    "28/08": {
+      "Eliane Nalin": {
+        "t": 22,
+        "apr": 22,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 104.8
+      },
+      "Jaqueline Tais Reimundo": {
+        "t": 36,
+        "apr": 36,
+        "rep": 0,
+        "pot": 12,
+        "tub": 22,
+        "pct": 171.4
+      },
+      "Marileia Goettems": {
+        "t": 31,
+        "apr": 31,
+        "rep": 0,
+        "pot": 16,
+        "tub": 10,
+        "pct": 147.6
+      },
+      "Natan Soares": {
+        "t": 16,
+        "apr": 16,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 76.2
+      },
+      "Reinaldis Farinas": {
+        "t": 21,
+        "apr": 21,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 100.0
+      }
+    },
+    "31/08": {
+      "Eliane Nalin": {
+        "t": 21,
+        "apr": 20,
+        "rep": 1,
+        "pot": 0,
+        "tub": 0,
+        "pct": 100.0
+      },
+      "Jaqueline Tais Reimundo": {
+        "t": 32,
+        "apr": 32,
+        "rep": 0,
+        "pot": 14,
+        "tub": 16,
+        "pct": 152.4
+      },
+      "Marileia Goettems": {
+        "t": 22,
+        "apr": 22,
+        "rep": 0,
+        "pot": 15,
+        "tub": 7,
+        "pct": 104.8
+      },
+      "Natan Soares": {
+        "t": 16,
+        "apr": 16,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 76.2
+      },
+      "Reinaldis Farinas": {
+        "t": 28,
+        "apr": 28,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 133.3
+      }
     }
   },
-  "ultima_atualizacao": "28/08/2026 10:44"
+  "ultima_atualizacao": "01/09/2026 11:21"
 }
