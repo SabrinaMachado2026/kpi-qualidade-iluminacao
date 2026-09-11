@@ -4382,38 +4382,72 @@
     },
     "09/09": {
       "Eliane Nalin": {
-        "t": 1,
-        "apr": 1,
-        "rep": 0,
+        "t": 11,
+        "apr": 10,
+        "rep": 1,
         "pot": 0,
         "tub": 0,
-        "pct": 4.8
+        "pct": 52.4
       },
       "Marileia Goettems": {
-        "t": 19,
-        "apr": 19,
+        "t": 24,
+        "apr": 24,
         "rep": 0,
-        "pot": 9,
-        "tub": 10,
-        "pct": 90.5
+        "pot": 10,
+        "tub": 13,
+        "pct": 114.3
       },
       "Natan Soares": {
-        "t": 9,
-        "apr": 9,
+        "t": 16,
+        "apr": 16,
         "rep": 0,
         "pot": 0,
         "tub": 0,
-        "pct": 42.9
+        "pct": 76.2
       },
       "Reinaldis Farinas": {
-        "t": 7,
-        "apr": 7,
+        "t": 16,
+        "apr": 16,
         "rep": 0,
         "pot": 0,
         "tub": 0,
-        "pct": 33.3
+        "pct": 76.2
+      }
+    },
+    "10/09": {
+      "Eliane Nalin": {
+        "t": 25,
+        "apr": 25,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 119.0
+      },
+      "Marileia Goettems": {
+        "t": 31,
+        "apr": 31,
+        "rep": 0,
+        "pot": 18,
+        "tub": 8,
+        "pct": 147.6
+      },
+      "Natan Soares": {
+        "t": 15,
+        "apr": 15,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 71.4
+      },
+      "Reinaldis Farinas": {
+        "t": 25,
+        "apr": 25,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 119.0
       }
     }
   },
-  "ultima_atualizacao": "10/09/2026 18:04"
+  "ultima_atualizacao": "11/09/2026 10:21"
 }
