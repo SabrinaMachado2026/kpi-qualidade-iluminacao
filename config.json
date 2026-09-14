@@ -87,8 +87,15 @@
       "motivo": "Outro",
       "observacao": "Poucas pessoas no setor ,baixa produtividade. Dei sequência no planer de atividades",
       "timestamp": "11/09/2026 11:52"
+    },
+    {
+      "inspetor": "Reinaldis Farinas",
+      "data": "09/09",
+      "motivo": "Outro",
+      "observacao": "Baixa produtividade na linha ",
+      "timestamp": "14/09/2026 09:37"
     }
   ],
   "senha_admin": "Zagonel@2026",
-  "ultima_atualizacao": "11/09/2026 11:52"
+  "ultima_atualizacao": "14/09/2026 09:37"
 }
