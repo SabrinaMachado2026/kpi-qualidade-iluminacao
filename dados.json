@@ -4440,14 +4440,48 @@
         "pct": 71.4
       },
       "Reinaldis Farinas": {
-        "t": 25,
-        "apr": 25,
+        "t": 26,
+        "apr": 26,
         "rep": 0,
         "pot": 0,
         "tub": 0,
+        "pct": 123.8
+      }
+    },
+    "11/09": {
+      "Eliane Nalin": {
+        "t": 10,
+        "apr": 10,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 47.6
+      },
+      "Marileia Goettems": {
+        "t": 25,
+        "apr": 25,
+        "rep": 0,
+        "pot": 7,
+        "tub": 15,
         "pct": 119.0
+      },
+      "Natan Soares": {
+        "t": 13,
+        "apr": 13,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 61.9
+      },
+      "Reinaldis Farinas": {
+        "t": 14,
+        "apr": 14,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 66.7
       }
     }
   },
-  "ultima_atualizacao": "14/09/2026 10:18"
+  "ultima_atualizacao": "14/09/2026 10:19"
 }
