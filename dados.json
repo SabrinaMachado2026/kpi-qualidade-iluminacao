@@ -4677,7 +4677,99 @@
         "tub": 0,
         "pct": 38.1
       }
+    },
+    "22/09": {
+      "Eliane Nalin": {
+        "t": 20,
+        "apr": 19,
+        "rep": 1,
+        "pot": 0,
+        "tub": 0,
+        "pct": 95.2
+      },
+      "Jaqueline Reimundo": {
+        "t": 2,
+        "apr": 2,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 9.5
+      },
+      "Jaqueline Tais Reimundo": {
+        "t": 11,
+        "apr": 11,
+        "rep": 0,
+        "pot": 0,
+        "tub": 11,
+        "pct": 52.4
+      },
+      "Junior Schwerz": {
+        "t": 3,
+        "apr": 3,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 14.3
+      },
+      "Marileia Goettems": {
+        "t": 21,
+        "apr": 21,
+        "rep": 0,
+        "pot": 14,
+        "tub": 7,
+        "pct": 100.0
+      },
+      "Natan Soares": {
+        "t": 6,
+        "apr": 6,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 28.6
+      }
+    },
+    "23/09": {
+      "Eliane Nalin": {
+        "t": 21,
+        "apr": 21,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 100.0
+      },
+      "Jaqueline Tais Reimundo": {
+        "t": 40,
+        "apr": 40,
+        "rep": 0,
+        "pot": 21,
+        "tub": 19,
+        "pct": 190.5
+      },
+      "Marileia Goettems": {
+        "t": 26,
+        "apr": 26,
+        "rep": 0,
+        "pot": 18,
+        "tub": 8,
+        "pct": 123.8
+      },
+      "Natan Soares": {
+        "t": 11,
+        "apr": 11,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 52.4
+      },
+      "Reinaldis Farinas": {
+        "t": 31,
+        "apr": 31,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 147.6
+      }
     }
   },
-  "ultima_atualizacao": "22/09/2026 00:36"
+  "ultima_atualizacao": "24/09/2026 20:06"
 }
