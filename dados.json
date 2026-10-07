@@ -5111,7 +5111,91 @@
         "tub": 0,
         "pct": 19.0
       }
+    },
+    "05/10": {
+      "Eliane Nalin": {
+        "t": 20,
+        "apr": 20,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 95.2
+      },
+      "Lunara": {
+        "t": 5,
+        "apr": 1,
+        "rep": 4,
+        "pot": 0,
+        "tub": 0,
+        "pct": 23.8
+      },
+      "Marileia Goettems": {
+        "t": 24,
+        "apr": 24,
+        "rep": 0,
+        "pot": 12,
+        "tub": 7,
+        "pct": 114.3
+      },
+      "Michelly": {
+        "t": 4,
+        "apr": 0,
+        "rep": 4,
+        "pot": 0,
+        "tub": 0,
+        "pct": 19.0
+      },
+      "Reinaldis Farinas": {
+        "t": 9,
+        "apr": 9,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 42.9
+      }
+    },
+    "06/10": {
+      "Eliane Nalin": {
+        "t": 28,
+        "apr": 28,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 133.3
+      },
+      "Lunara": {
+        "t": 6,
+        "apr": 3,
+        "rep": 3,
+        "pot": 0,
+        "tub": 0,
+        "pct": 28.6
+      },
+      "Marileia Goettems": {
+        "t": 10,
+        "apr": 10,
+        "rep": 0,
+        "pot": 10,
+        "tub": 0,
+        "pct": 47.6
+      },
+      "Michelly": {
+        "t": 5,
+        "apr": 2,
+        "rep": 3,
+        "pot": 0,
+        "tub": 0,
+        "pct": 23.8
+      },
+      "Reinaldis Farinas": {
+        "t": 11,
+        "apr": 11,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 52.4
+      }
     }
   },
-  "ultima_atualizacao": "05/10/2026 14:23"
+  "ultima_atualizacao": "07/10/2026 11:58"
 }
