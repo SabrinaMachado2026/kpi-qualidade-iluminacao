@@ -153,6 +153,13 @@
       "motivo": "Outro",
       "observacao": "Não foi possível atingir a meta diária devido ao processo de aprendizagem e adaptação na linha de produção.",
       "timestamp": "10/11/2026 11:18"
+    },
+    {
+      "inspetor": "Reinaldis Farinas",
+      "data": "29/05",
+      "motivo": "Outro",
+      "observacao": "Não foi possível atingir a meta diária devido ao processo de aprendizagem e adaptação na linha de produção.",
+      "timestamp": "10/11/2026 11:18"
     }
   ],
   "senha_admin": "Zagonel@2026",
