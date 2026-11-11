@@ -6461,7 +6461,131 @@
         "tub": 0,
         "pct": 42.9
       }
+    },
+    "09/11": {
+      "Ana Paula Assmann": {
+        "t": 21,
+        "apr": 21,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 100.0
+      },
+      "Augusto Casalli": {
+        "t": 9,
+        "apr": 9,
+        "rep": 0,
+        "pot": 0,
+        "tub": 9,
+        "pct": 42.9
+      },
+      "Bruna Muller Travessini": {
+        "t": 2,
+        "apr": 2,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 9.5
+      },
+      "Eliane Nalin": {
+        "t": 1,
+        "apr": 1,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 4.8
+      },
+      "Hanikeli Teodoro": {
+        "t": 1,
+        "apr": 1,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 4.8
+      },
+      "Jaqueline Reimundo": {
+        "t": 21,
+        "apr": 21,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 100.0
+      },
+      "Marileia Goettems": {
+        "t": 25,
+        "apr": 25,
+        "rep": 0,
+        "pot": 15,
+        "tub": 8,
+        "pct": 119.0
+      },
+      "Reinaldis Farinas": {
+        "t": 19,
+        "apr": 18,
+        "rep": 1,
+        "pot": 0,
+        "tub": 0,
+        "pct": 90.5
+      }
+    },
+    "10/11": {
+      "Ana Paula Assmann": {
+        "t": 36,
+        "apr": 36,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 171.4
+      },
+      "Augusto Casalli": {
+        "t": 15,
+        "apr": 15,
+        "rep": 0,
+        "pot": 7,
+        "tub": 8,
+        "pct": 71.4
+      },
+      "Bruna Muller Travessini": {
+        "t": 2,
+        "apr": 2,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 9.5
+      },
+      "Hanikeli Teodoro": {
+        "t": 4,
+        "apr": 4,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 19.0
+      },
+      "Jaqueline Reimundo": {
+        "t": 23,
+        "apr": 23,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 109.5
+      },
+      "Marileia Goettems": {
+        "t": 25,
+        "apr": 25,
+        "rep": 0,
+        "pot": 18,
+        "tub": 7,
+        "pct": 119.0
+      },
+      "Reinaldis Farinas": {
+        "t": 18,
+        "apr": 18,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 85.7
+      }
     }
   },
-  "ultima_atualizacao": "09/11/2026 14:06"
+  "ultima_atualizacao": "11/11/2026 19:56"
 }
