@@ -1,21 +1,5 @@
 {
   "metas": {
-    "Jaqueline Reimundo": {
-      "tempo": 25,
-      "meta": 21
-    },
-    "Marileia Goettems": {
-      "tempo": 25,
-      "meta": 21
-    },
-    "Natan Soares": {
-      "tempo": 25,
-      "meta": 21
-    },
-    "Maristela Poter": {
-      "tempo": 25,
-      "meta": 21
-    },
     "Bruna Muller Travessini": {
       "tempo": 25,
       "meta": 2
@@ -24,15 +8,23 @@
       "tempo": 25,
       "meta": 21
     },
-    "Reinaldis Farinas": {
+    "Jaqueline Reimundo": {
       "tempo": 25,
       "meta": 21
     },
-    "Hanikeli Teodoro": {
+    "Marileia Goettems": {
       "tempo": 25,
-      "meta": 10
+      "meta": 21
     },
-    "Elen Sandi Grando": {
+    "Maristela Poter": {
+      "tempo": 25,
+      "meta": 21
+    },
+    "Natan Soares": {
+      "tempo": 25,
+      "meta": 21
+    },
+    "Reinaldis Farinas": {
       "tempo": 25,
       "meta": 21
     },
@@ -40,13 +32,17 @@
       "tempo": 25,
       "meta": 21
     },
-    "Sabrina Carla Kellerer Machado de Oliveira": {
+    "Elen Sandi Grando": {
       "tempo": 25,
       "meta": 21
     },
     "Ana Paula Assmann": {
       "tempo": 25,
       "meta": 21
+    },
+    "Hanikeli Teodoro": {
+      "tempo": 25,
+      "meta": 10
     },
     "Augusto Casalli": {
       "tempo": 25,
@@ -55,6 +51,10 @@
     "Barbara Stulp": {
       "tempo": 25,
       "meta": 10
+    },
+    "Sabrina Carla Kellerer Machado de Oliveira": {
+      "tempo": 25,
+      "meta": 21
     },
     "Naiara Rossa": {
       "tempo": 25,
