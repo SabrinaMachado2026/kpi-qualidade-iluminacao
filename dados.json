@@ -6669,7 +6669,41 @@
         "tub": 0,
         "pct": 100.0
       }
+    },
+    "13/11": {
+      "Ana Paula Assmann": {
+        "t": 16,
+        "apr": 16,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 76.2
+      },
+      "Jaqueline Reimundo": {
+        "t": 20,
+        "apr": 20,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 95.2
+      },
+      "Marileia Goettems": {
+        "t": 23,
+        "apr": 23,
+        "rep": 0,
+        "pot": 12,
+        "tub": 8,
+        "pct": 109.5
+      },
+      "Reinaldis Farinas": {
+        "t": 14,
+        "apr": 14,
+        "rep": 0,
+        "pot": 0,
+        "tub": 0,
+        "pct": 66.7
+      }
     }
   },
-  "ultima_atualizacao": "13/11/2026 10:33"
+  "ultima_atualizacao": "16/11/2026 18:00"
 }
