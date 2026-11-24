@@ -6856,12 +6856,12 @@
     },
     "19/11": {
       "Ana Paula Assmann": {
-        "t": 12,
-        "apr": 12,
+        "t": 11,
+        "apr": 11,
         "rep": 0,
         "pot": 0,
         "tub": 0,
-        "pct": 57.1
+        "pct": 52.4
       },
       "Bruna Muller Travessini": {
         "t": 1,
@@ -6872,36 +6872,36 @@
         "pct": 4.8
       },
       "Jaqueline Reimundo": {
-        "t": 6,
-        "apr": 6,
+        "t": 16,
+        "apr": 16,
         "rep": 0,
         "pot": 0,
         "tub": 0,
-        "pct": 28.6
+        "pct": 76.2
       },
       "Marileia Goettems": {
-        "t": 5,
-        "apr": 5,
+        "t": 20,
+        "apr": 20,
         "rep": 0,
-        "pot": 4,
-        "tub": 1,
-        "pct": 23.8
+        "pot": 8,
+        "tub": 7,
+        "pct": 95.2
       },
       "Reinaldis Farinas": {
         "t": 10,
-        "apr": 10,
-        "rep": 0,
+        "apr": 9,
+        "rep": 1,
         "pot": 0,
         "tub": 0,
         "pct": 47.6
       },
       "Lunara": {
-        "t": 1,
-        "apr": 0,
+        "t": 2,
+        "apr": 1,
         "rep": 1,
         "pot": 0,
         "tub": 0,
-        "pct": 4.8
+        "pct": 9.5
       }
     },
     "23/11": {
@@ -6955,5 +6955,5 @@
       }
     }
   },
-  "ultima_atualizacao": "24/11/2026 11:29"
+  "ultima_atualizacao": "24/11/2026 11:30"
 }
